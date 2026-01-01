@@ -1,0 +1,29 @@
+# Technical Writing Skill - Python Requirements
+# =============================================
+#
+# Python Version: 3.7+ required
+# - f-strings (3.6+)
+# - dataclasses (3.7+)
+# - typing module features (3.7+)
+#
+# =============================================
+# CORE DEPENDENCIES: None (standard library only)
+# =============================================
+#
+# All scripts use ONLY Python standard library modules:
+# - os, sys, re, ast, json, subprocess
+# - pathlib, collections, typing, dataclasses
+# - datetime, hashlib, enum, argparse
+#
+# No pip install required for core functionality.
+#
+# =============================================
+# OPTIONAL: Development Dependencies
+# =============================================
+# Uncomment these if you want to run tests or format code:
+#
+# pytest>=7.0.0           # For running tests
+# pytest-cov>=4.0.0       # For coverage reports
+# black>=23.0.0           # Code formatting
+# mypy>=1.0.0             # Static type checking
+# ruff>=0.1.0             # Fast linting

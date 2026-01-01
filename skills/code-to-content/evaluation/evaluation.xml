@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Technical Writing Skill Evaluation
+  ==================================
+
+  Purpose: Test whether Claude can effectively use this skill's files
+  and guidance to answer questions AND make correct gate pass/fail decisions.
+
+  Approach: Self-contained - all questions can be answered by reading
+  the skill's own files (SKILL.md, templates, scripts, references).
+
+  Question Categories:
+  - Template structure knowledge (2 questions)
+  - Audience profile thresholds (2 questions)
+  - Voice calibration rules (2 questions)
+  - Script capabilities (2 questions)
+  - Reference file content (2 questions)
+  - Content quality gates (5 questions) - tests enforcement decisions
+  - Build-in-public workflow (3 questions) - tests journey continuity
+
+  Total: 18 questions
+
+  Requirements:
+  - All questions are read-only and non-destructive
+  - All questions are independent (no dependencies between them)
+  - All answers are verifiable via direct string comparison
+  - Questions require reading and understanding skill files
+  - Content quality questions test gate pass/fail decision-making
+-->
+<evaluation>
+
+  <!-- CATEGORY: Template Structure Knowledge -->
+  <qa_pair>
+    <question>According to the blog post template in assets/templates/blog_post.md, what phrase should NEVER be used to open a blog post? Provide the exact phrase mentioned.</question>
+    <answer>In this article, I will...</answer>
+  </qa_pair>
+
+  <qa_pair>
+    <question>Based on the README template in assets/templates/readme.md, what is the first section that should appear after the project title and badges? Answer with the exact section name.</question>
+    <answer>The Problem</answer>
+  </qa_pair>
+
+  <!-- CATEGORY: Audience Profile Thresholds -->
+  <qa_pair>
+    <question>According to the audience profiles defined in SKILL.md's Design Principles section, what is the maximum Flesch-Kincaid grade level for content targeting beginner developers? Answer with just the number.</question>
+    <answer>8.0</answer>
+  </qa_pair>
+
+  <qa_pair>
+    <question>Based on the audience calibration in SKILL.md, what is the jargon tolerance percentage for intermediate developers? Answer with just the number including the percent symbol.</question>
+    <answer>4%</answer>
+  </qa_pair>
+
+  <!-- CATEGORY: Voice Calibration Rules -->
+  <qa_pair>
+    <question>According to the Voice Calibration table in SKILL.md, what voice style should be used when writing content about a Rust project? Provide the exact description from the table.</question>
+    <answer>Precise, safety-conscious</answer>
+  </qa_pair>
+
+  <qa_pair>
+    <question>Based on the Voice Calibration table in SKILL.md, what voice style is recommended for Go projects? Provide the exact description.</question>
+    <answer>Direct, minimal</answer>
+  </qa_pair>
+
+  <!-- CATEGORY: Script Capabilities -->
+  <qa_pair>
+    <question>What flag should be passed to analyze_codebase.py to enable full AST parsing and git narrative analysis? Answer with the exact flag including the dashes.</question>
+    <answer>--deep</answer>
+  </qa_pair>
+
+  <qa_pair>
+    <question>According to SKILL.md, what flag should be passed to analyze_readability.py to get pass/fail output suitable for CI/CD integration? Answer with the exact flag.</question>
+    <answer>--validate</answer>
+  </qa_pair>
+
+  <!-- CATEGORY: Reference File Content -->
+  <qa_pair>
+    <question>According to the Cognitive Load Management table in SKILL.md, what approach should be used when a project has more than 30 dependencies? Answer with the exact approach name.</question>
+    <answer>Progressive disclosure with checkpoints</answer>
+  </qa_pair>
+
+  <qa_pair>
+    <question>Based on SKILL.md's Storytelling from Evidence section, what are the three sources that should be used to extract narrative? List the first source mentioned.</question>
+    <answer>Git history</answer>
+  </qa_pair>
+
+  <!-- CATEGORY: Content Quality Gates (tests enforcement, not just comprehension) -->
+  <qa_pair>
+    <question>A blog post opens with "In this article, I will explain how we built our API." According to SKILL.md's Common Issues section, does this opening pass the hook quality check? Answer YES or NO.</question>
+    <answer>NO</answer>
+  </qa_pair>
+
+  <qa_pair>
+    <question>Content targeting beginner developers has a Flesch-Kincaid grade level of 13.5. According to the Readability Thresholds table in SKILL.md, does this PASS or FAIL the Phase 5 gate?</question>
+    <answer>FAIL</answer>
+  </qa_pair>
+
+  <qa_pair>
+    <question>A tutorial has 6 jargon terms in 100 words (6% jargon density) and targets intermediate developers. According to SKILL.md's audience thresholds (4% max for intermediate), does this PASS or FAIL?</question>
+    <answer>FAIL</answer>
+  </qa_pair>
+
+  <qa_pair>
+    <question>A Twitter thread's first tweet reads: "Thread on caching strategies 1/8". According to the Twitter Thread Checklist in references/checklists.md, does this violate the "No Thread: or 1/ prefixes" rule? Answer YES or NO.</question>
+    <answer>YES</answer>
+  </qa_pair>
+
+  <qa_pair>
+    <question>A blog post claims "performance improved by 50%" but provides no commit hash, file path, or benchmark source. According to Phase 3 Gate requirements in SKILL.md, can this content proceed to Phase 4? Answer YES or NO.</question>
+    <answer>NO</answer>
+  </qa_pair>
+
+  <!-- CATEGORY: Build-in-Public Workflow -->
+  <qa_pair>
+    <question>According to references/build-in-public.md, what document should be created FIRST before any build-in-public content to maintain narrative continuity? Answer with the exact template name.</question>
+    <answer>Journey Brief</answer>
+  </qa_pair>
+
+  <qa_pair>
+    <question>According to the Milestone Matrix in references/build-in-public.md, when you achieve a "technical breakthrough" milestone, what is the PRIMARY content type recommended? Answer with the exact format name.</question>
+    <answer>Blog post</answer>
+  </qa_pair>
+
+  <qa_pair>
+    <question>According to the Content Cascade Pattern in references/build-in-public.md, how many days after a major milestone should the comprehensive blog post be published? Answer with just the number.</question>
+    <answer>7</answer>
+  </qa_pair>
+
+</evaluation>

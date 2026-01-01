@@ -1,0 +1,37 @@
+{
+  "name": "code-to-content",
+  "description": "Transform codebases into developer content. 5-phase gated workflow, 3 parallel agents, 9 content formats (blog, tutorial, Twitter, LinkedIn, README, newsletter, video script, conference talk, product launch).",
+  "version": "1.0.0",
+  "author": {
+    "name": "Abraham Onoja"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/arome3/code-to-content",
+  "keywords": [
+    "code-to-content",
+    "developer-content",
+    "content-marketing",
+    "blog",
+    "tutorial",
+    "readme",
+    "twitter",
+    "linkedin",
+    "newsletter",
+    "build-in-public",
+    "devrel",
+    "developer-advocacy",
+    "agents",
+    "parallel-execution"
+  ],
+  "skills": [
+    "code-to-content"
+  ],
+  "agents": [
+    "content-explorer",
+    "format-specialist",
+    "quality-reviewer"
+  ],
+  "engines": {
+    "claude-code": ">=1.0.0"
+  }
+}
