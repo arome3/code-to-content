@@ -25,6 +25,7 @@ build/
 .env
 .env.local
 *.local
+settings.local.json
 
 # Logs
 *.log
