@@ -2,11 +2,33 @@
   <img src="c2c.png" alt="Code to Content" width="600">
 </p>
 
+<p align="center">
+  <a href="https://github.com/arome3/code-to-content/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Code to Content is released under the MIT license." />
+  </a>
+  <a href="https://github.com/arome3/code-to-content/issues">
+    <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="Contributions Welcome" />
+  </a>
+  <a href="https://twitter.com/arome_dev">
+    <img src="https://img.shields.io/twitter/follow/arome_dev?label=Follow&style=social" alt="Follow on Twitter" />
+  </a>
+</p>
+
 # Code to Content
 
 > *From commits to content.*
 
 Transform codebases into compelling developer content with a mandatory 5-phase process, verification gates, and build-in-public support.
+
+## Why Use This?
+
+Most developers ship amazing code but struggle to tell the story.
+
+* **Writer's Block:** Staring at a blank page is painful.
+* **Context Switching:** Turning deep technical logic into accessible English is hard.
+* **Consistency:** "Building in public" requires constant updates.
+
+**Code to Content** solves this by using your **actual source code** as the source of truth. It doesn't just "write a generic post"—it analyzes your specific implementation, architectural decisions, and variable names to generate evidence-based content.
 
 ## What This Skill Does
 
@@ -72,6 +94,20 @@ Claude: [Executes 5-phase process]
 
   [Delivers verified content]
 ```
+
+<details>
+<summary><b>See an example Blog Post output</b></summary>
+
+> **Title:** How we reduced latency by 40% using Rust (and why we ditched Python)
+>
+> **Intro:**
+> When we started the `payment-service` module (located in `/src/services/payments`), we hit a bottleneck. Our Python implementation was choking on concurrent requests.
+>
+> In this post, I'll show you exactly how we refactored the `AsyncProcessor` class...
+>
+> *[...Full post continues with code snippets extracted from your files...]*
+
+</details>
 
 ### Slash Commands
 
