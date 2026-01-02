@@ -49,7 +49,7 @@ Most developers ship amazing code but struggle to tell the story.
 
 ```
 /plugin marketplace add arome3/code-to-content
-/plugin install code-to-content@arome3/code-to-content
+/plugin install code-to-content@code-to-content
 ```
 
 Restart Claude Code after installation.
