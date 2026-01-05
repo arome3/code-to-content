@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Transform codebases into developer content with a 5-phase gated workflow",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "plugins": [
     {
       "name": "code-to-content",
       "source": "./skills/code-to-content",
       "description": "Transform codebases into developer content. 5-phase gated workflow, 3 parallel agents, 9 content formats (blog, tutorial, Twitter, LinkedIn, README, newsletter, video script, conference talk, product launch).",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Abraham Onoja"
       },
@@ -31,7 +31,28 @@
         "build-in-public",
         "devrel"
       ],
-      "category": "content"
+      "category": "content",
+      "commands": [
+        "./.claude/commands/c2c/twitter.md",
+        "./.claude/commands/c2c/linkedin.md",
+        "./.claude/commands/c2c/blog.md",
+        "./.claude/commands/c2c/readme.md",
+        "./.claude/commands/c2c/tutorial.md",
+        "./.claude/commands/c2c/newsletter.md",
+        "./.claude/commands/c2c/video-script.md",
+        "./.claude/commands/c2c/conference-talk.md",
+        "./.claude/commands/c2c/product-launch.md",
+        "./.claude/commands/c2c/quick-twitter.md",
+        "./.claude/commands/c2c/quick-linkedin.md",
+        "./.claude/commands/c2c/quick-blog.md",
+        "./.claude/commands/c2c/quick-readme.md",
+        "./.claude/commands/c2c/cascade.md"
+      ],
+      "agents": [
+        "./agents/content-explorer.md",
+        "./agents/format-specialist.md",
+        "./agents/quality-reviewer.md"
+      ]
     }
   ]
 }

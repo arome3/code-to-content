@@ -1,7 +1,7 @@
 {
   "name": "code-to-content",
   "description": "Transform codebases into developer content. 5-phase gated workflow, 3 parallel agents, 9 content formats (blog, tutorial, Twitter, LinkedIn, README, newsletter, video script, conference talk, product launch).",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Abraham Onoja"
   },
@@ -23,8 +23,21 @@
     "agents",
     "parallel-execution"
   ],
-  "skills": [
-    "code-to-content"
+  "commands": [
+    "c2c:twitter",
+    "c2c:linkedin",
+    "c2c:blog",
+    "c2c:readme",
+    "c2c:tutorial",
+    "c2c:newsletter",
+    "c2c:video-script",
+    "c2c:conference-talk",
+    "c2c:product-launch",
+    "c2c:quick-twitter",
+    "c2c:quick-linkedin",
+    "c2c:quick-blog",
+    "c2c:quick-readme",
+    "c2c:cascade"
   ],
   "agents": [
     "content-explorer",

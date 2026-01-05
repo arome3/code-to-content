@@ -142,7 +142,7 @@ code-to-content/
 │   └── plugin.json             # Plugin metadata
 ├── skills/
 │   └── code-to-content/
-│       ├── SKILL.md            # Main skill definition (v1.0.0)
+│       ├── SKILL.md            # Main skill definition (v1.0.1)
 │       ├── .claude/commands/   # 13 slash commands (9 full + 4 quick)
 │       ├── assets/templates/   # Content templates with copy-ready formats
 │       ├── references/         # Claude-native analysis guides (13 files)

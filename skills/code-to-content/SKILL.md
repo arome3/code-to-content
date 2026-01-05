@@ -9,7 +9,7 @@ description: |
   - Build-in-public updates, progress threads, milestone announcements
   - Product launches on Product Hunt, Hacker News, or social platforms
   - Any request to explain, document, or share a codebase publicly
-version: 1.0.0
+version: 1.0.1
 author: Abraham Onoja
 tags: [writing, content, documentation, marketing, devrel, build-in-public]
 agents:
