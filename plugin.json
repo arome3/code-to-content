@@ -1,0 +1,26 @@
+{
+  "name": "code-to-content",
+  "description": "Transform codebases into developer content. 5-phase gated workflow with verification gates, 3 parallel agents, and 9 content formats (blog, tutorial, Twitter/X, LinkedIn, README, newsletter, video script, conference talk, product launch). Use when asked to create blog posts, tutorials, social media content, documentation, or any developer-facing content from a codebase.",
+  "version": "1.0.2",
+  "author": {
+    "name": "Abraham Onoja"
+  },
+  "license": "MIT",
+  "keywords": [
+    "code-to-content",
+    "developer-content",
+    "technical-writing",
+    "content-marketing",
+    "blog",
+    "tutorial",
+    "twitter",
+    "linkedin",
+    "readme",
+    "newsletter",
+    "build-in-public",
+    "devrel",
+    "developer-advocacy"
+  ],
+  "agents": "agents/",
+  "skills": ["skills/"]
+}
