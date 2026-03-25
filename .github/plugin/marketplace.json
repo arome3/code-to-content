@@ -1,0 +1,18 @@
+{
+  "name": "code-to-content-marketplace",
+  "owner": {
+    "name": "Abraham Onoja"
+  },
+  "metadata": {
+    "description": "Transform codebases into developer content with a 5-phase gated workflow",
+    "version": "1.0.2"
+  },
+  "plugins": [
+    {
+      "name": "code-to-content",
+      "description": "5-phase gated workflow for transforming codebases into 9 content formats (blog, tutorial, Twitter/X, LinkedIn, README, newsletter, video script, conference talk, product launch). Includes 3 parallel agents for discovery, formatting, and quality review.",
+      "version": "1.0.2",
+      "source": "."
+    }
+  ]
+}

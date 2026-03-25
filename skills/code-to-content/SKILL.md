@@ -2,29 +2,35 @@
 name: code-to-content
 description: |
   Use when transforming a codebase into developer content. Activates for:
-  - Blog posts, tutorials, or technical documentation about code
-  - README, changelog, release notes, or API docs generation
-  - Twitter/X threads, LinkedIn posts about technical work
-  - Conference talk proposals (CFP) or newsletter content
-  - Build-in-public updates, progress threads, milestone announcements
-  - Product launches on Product Hunt, Hacker News, or social platforms
-  - Any request to explain, document, or share a codebase publicly
-version: 1.0.1
-author: Abraham Onoja
-tags: [writing, content, documentation, marketing, devrel, build-in-public]
-agents:
-  - content-explorer
-  - format-specialist
-  - quality-reviewer
-hooks:
-  - validate_content
-commands:
-  - cascade
+  blog posts, tutorials, technical documentation, README, changelog,
+  release notes, API docs, Twitter/X threads, LinkedIn posts,
+  conference talk proposals, newsletter content, build-in-public updates,
+  progress threads, milestone announcements, product launches,
+  video scripts, or any request to explain, document, or share code publicly.
+license: MIT
 ---
 
 # Code to Content Skill
 
 Transform codebases into compelling developer content through a mandatory 5-phase process with verification gates.
+
+## How to Use
+
+Simply ask the AI to create content from your code. The skill auto-activates for content-related requests.
+
+**Examples:**
+- "Write a blog post about my FastAPI project at ./src"
+- "Create a Twitter thread about the latest feature I shipped"
+- "Generate a README for this codebase"
+- "Write a LinkedIn post about our architecture decisions"
+- "Create a tutorial for the authentication module"
+- "Generate a conference talk proposal based on this project"
+
+**Quick Mode:** For rapid content generation, prefix your request with "quick":
+- "Quick twitter thread about this project" — skips Phases 1, 2, and 4
+- "Quick LinkedIn post" — skips Phases 1, 2, and 4
+- "Quick blog post" — skips Phase 1 and 4 (still validates audience)
+- "Quick README" — skips Phases 1 and 2
 
 ---
 
@@ -86,7 +92,7 @@ Consolidate: Merge issues, prioritize by severity, address blocking items
 - `readability-guide.md` — Readability validation (required for Phase 5)
 
 **Load On-Demand:**
-- `analysis-prompts.md` — Only if running Claude-native analysis (Phase 1)
+- `analysis-prompts.md` — Only if running inline analysis (Phase 1)
 - `audiences.md` — Only if audience calibration needed (Phase 2)
 - `brand-voice.md` — Only if voice calibration by tech stack/maturity needed (Phase 2)
 - `cognitive-load.md` — Only if complex content requiring progressive disclosure (Phase 4)
@@ -150,7 +156,7 @@ Consolidate agent outputs into unified Project Brief.
 
 ### Option B: Inline Analysis Protocol
 
-Follow `references/analysis-prompts.md` for Claude-native analysis:
+Follow `references/analysis-prompts.md` for inline analysis:
 1. Tech stack detection (read package.json, requirements.txt, etc.)
 2. Architecture pattern detection from directory structure
 3. Story hook discovery (grep for TODO, FIXME, HACK, etc.)
@@ -425,15 +431,27 @@ Load on-demand. **Always load:** `phase-gates.md`, `readability-guide.md`
 
 ---
 
-## Slash Commands
+## Activation Modes
 
-| Mode | Commands | Description |
-|------|----------|-------------|
-| **Full** | `/c2c:blog`, `/c2c:tutorial`, `/c2c:twitter`, `/c2c:readme`, `/c2c:linkedin`, `/c2c:newsletter`, `/c2c:video-script`, `/c2c:conference-talk`, `/c2c:product-launch` | All 5 phases |
-| **Quick** | `/c2c:quick-twitter`, `/c2c:quick-linkedin`, `/c2c:quick-blog`, `/c2c:quick-readme` | Reduced phases for rapid generation |
-| **Cascade** | `/c2c:cascade` | Multi-platform repurposing from source |
+The skill supports two modes:
 
-See `references/commands.md` for full usage details. Commands are in `.claude/commands/c2c/`.
+| Mode | How to Trigger | Phases |
+|------|---------------|--------|
+| **Full** | "Write a blog post about..." / "Create a tutorial for..." | All 5 phases |
+| **Quick** | "Quick twitter thread about..." / "Quick blog post..." | Reduced phases for rapid generation |
+
+### Quick Mode Phase Skipping
+
+| Quick Prefix | Phases Skipped | Best For |
+|-------------|----------------|----------|
+| Quick twitter | 1, 2, 4 | Fast tweets when you know your audience |
+| Quick linkedin | 1, 2, 4 | Quick LinkedIn posts |
+| Quick blog | 1, 4 | Rapid blog drafts (still validates audience) |
+| Quick readme | 1, 2 | Fast README updates |
+
+### Content Cascade
+
+Ask for a "content cascade" to generate multi-platform content from a single source analysis. This repurposes one deep analysis into Twitter → LinkedIn → Blog → Newsletter formats.
 
 ---
 
@@ -480,7 +498,7 @@ When MCP servers (`twitter-mcp`, `linkedin-mcp`, `buffer-mcp`) are available, th
 
 ## Automatic Quality Hooks (Optional)
 
-This skill supports automatic content validation via Claude Code hooks.
+This skill supports automatic content validation via the AI agent hooks.
 
 See `references/hooks-guide.md` for setup and customization.
 
@@ -488,4 +506,6 @@ See `references/hooks-guide.md` for setup and customization.
 
 ## Requirements
 
-All core analysis is Claude-native with no dependencies. Optional Python 3 for automatic hooks validation.
+- **GitHub Copilot CLI** or **Claude Code** — No external dependencies required
+- All analysis is performed inline by the AI agent
+- Optional: MCP servers for direct social media posting (see `references/mcp-integration.md`)
