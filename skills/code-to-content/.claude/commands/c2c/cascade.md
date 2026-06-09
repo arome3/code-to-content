@@ -6,6 +6,8 @@ Automatically derive multiple content formats from a single source piece. Write 
 
 ---
 
+> **Differentiation:** Repurposing multiplies reach, but a generic source piece stays generic on every platform. Make sure the source leads with the WHY, lands one defensible opinion, and shows a road not taken before cascading. Run the swap-the-name test from `references/differentiation.md` on each adapted piece.
+
 ## What Cascade Does
 
 Takes your primary content (blog post, tutorial, etc.) and automatically generates platform-optimized versions:
@@ -283,8 +285,8 @@ The real lesson isn't about N+1 queries. It's about profiling BEFORE optimizing.
 | Approach | When to Use |
 |----------|-------------|
 | `/c2c:cascade` | You have finished content and want to repurpose it quickly |
-| `/c2c:twitter` | You want a from-scratch thread with full 5-phase process |
-| `/c2c:linkedin` | You want a from-scratch post with full 5-phase process |
+| `/c2c:twitter` | You want a from-scratch thread with full 6-phase process |
+| `/c2c:linkedin` | You want a from-scratch post with full 6-phase process |
 
 Cascade is faster but derives from existing content.
 Individual commands do deeper original analysis.

@@ -25,7 +25,7 @@ Test across diverse input types:
 | Input Type | Test Case | Expected Behavior |
 |------------|-----------|-------------------|
 | **Minimal** | Single file with no README | Extracts what's available, asks for clarification |
-| **Standard** | Typical project structure | Full 5-phase process works |
+| **Standard** | Typical project structure | Full 6-phase process works |
 | **Complex** | Monorepo with 50+ packages | Focuses on subset, manages scope |
 | **Ambiguous** | No clear "aha moment" | Generates multiple angle options |
 | **Non-English** | Comments in other languages | Handles gracefully, notes limitation |
@@ -58,10 +58,11 @@ Deliberately trigger each gate failure:
 | Gate | Failure Trigger | Expected Behavior |
 |------|-----------------|-------------------|
 | Phase 1 | Empty repository | STOP with "No content-worthy insights" |
-| Phase 2 | "Write for everyone" | STOP with "Select single audience" |
-| Phase 3 | Request unverifiable claim | Refuse claim or find evidence |
-| Phase 4 | Conflicting optimization requests | Prioritize and explain trade-offs |
-| Phase 5 | Content fails readability | Revise until passes |
+| Phase 2 | User declines interview | Proceed code-only, flag Distinctiveness: AT RISK (never STOP) |
+| Phase 3 | "Write for everyone" | STOP with "Select single audience" |
+| Phase 4 | Request unverifiable claim | Refuse claim or find evidence |
+| Phase 5 | Conflicting optimization requests | Prioritize and explain trade-offs |
+| Phase 6 | Content fails readability | Revise until passes |
 
 ---
 
@@ -94,10 +95,11 @@ For each test case:
 ### Execution Log
 
 1. Phase 1: [PASS/FAIL] - [Notes]
-2. Phase 2: [PASS/FAIL] - [Notes]
+2. Phase 2: [ON TRACK/AT RISK] - [Differentiation]
 3. Phase 3: [PASS/FAIL] - [Notes]
 4. Phase 4: [PASS/FAIL] - [Notes]
 5. Phase 5: [PASS/FAIL] - [Notes]
+6. Phase 6: [PASS/FAIL] - [Notes]
 
 ### Quality Assessment
 
@@ -132,7 +134,7 @@ For quick validation, run at least these 5 tests:
 ### Test 1: Happy Path
 - **Input:** Well-structured open source project with git history
 - **Format:** Blog post for intermediate developers
-- **Expected:** Full 5-phase process completes with quality content
+- **Expected:** Full 6-phase process completes with quality content
 
 ### Test 2: Minimal Input
 - **Input:** Single Python script, no README

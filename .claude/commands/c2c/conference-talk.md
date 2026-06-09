@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash(python:*), Bash(git log:*), Read, Glob, Grep
+allowed-tools: Bash(git log:*), Read, Glob, Grep
 argument-hint: [project-path]
 description: Generate a CFP abstract and talk outline from a codebase
 ---
@@ -8,17 +8,18 @@ description: Generate a CFP abstract and talk outline from a codebase
 
 Create a CFP (Call for Papers) abstract and talk outline from the provided project.
 
+> **Differentiation Discovery (offer; never blocking):** Before generating, offer to make this unmistakably theirs — ask for the WHY (the thesis/stakes), one defensible opinion, a road not taken, or a rough draft to polish ("write it ugly; I'll keep your voice"). Rank raw material (Slack threads, support tickets, a voice-memo transcript) above clean specs. If declined, proceed on code alone and flag `Distinctiveness: AT RISK`. At delivery, run the swap-the-name test + AI-tells blocklist from `references/differentiation.md`.
+
 ## Process
 
 1. **Analyze the Project**
-   ```bash
-   python skills/code-to-content/legacy/analyze_codebase.py $ARGUMENTS --deep
-   ```
+   Analyze the codebase **Claude-natively** (read dependency files, detect architecture, grep story hooks like TODO/FIXME, mine `git log`) — see `references/analysis-prompts.md`. No scripts required.
    Focus on: architectural decisions, pivots, performance improvements, lessons learned.
 
 2. **Load Skill Context**
    Read these files:
    - `skills/code-to-content/SKILL.md`
+   - `skills/code-to-content/references/differentiation.md` (WHY / opinion / roads-not-taken)
    - `skills/code-to-content/references/conference-talks.md`
 
 3. **Extract Core Thesis**

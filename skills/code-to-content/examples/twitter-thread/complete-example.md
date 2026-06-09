@@ -141,10 +141,11 @@ Follow for more Go patterns.
 | Gate | Status | Evidence |
 |------|--------|----------|
 | Phase 1 | ✅ | Tech stack: Go, Gin, Redis, JWT |
-| Phase 2 | ✅ | Audience: Go developers, Format: Twitter thread |
-| Phase 3 | ✅ | Code from gin-boilerplate models/auth.go |
-| Phase 4 | ✅ | Each tweet standalone + connected |
-| Phase 5 | ✅ | All tweets < 280 chars verified |
+| Phase 2 (Differentiation) | ⚠️ | Pre-dates this phase — distinctiveness from code only; rerun with Phase 2 to add WHY/opinion/roads |
+| Phase 3 | ✅ | Audience: Go developers, Format: Twitter thread |
+| Phase 4 | ✅ | Code from gin-boilerplate models/auth.go |
+| Phase 5 | ✅ | Each tweet standalone + connected |
+| Phase 6 | ✅ | All tweets < 280 chars verified |
 
 ---
 

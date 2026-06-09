@@ -2,11 +2,11 @@
 
 ## Gate Failed
 
-**Phase 3 Gate** — Evidence Grounding
+**Phase 4 Gate** — Evidence Grounding
 
 ## Rule Violated
 
-From `SKILL.md` → Phase 3 (Deep-Dive Research) gate requirement:
+From `SKILL.md` → Phase 4 (Content Generation) gate requirement:
 
 > Every claim grounded in evidence (code, commits, metrics)
 
@@ -100,6 +100,6 @@ measured on production traffic patterns.
 
 ## Related Evaluation Question
 
-> Q: A blog post claims "our caching layer made the API 50% faster" but provides no commit hash, benchmark, or measurement methodology. According to SKILL.md's Phase 3 gate, does this claim pass the evidence grounding requirement? Answer YES or NO.
+> Q: A blog post claims "our caching layer made the API 50% faster" but provides no commit hash, benchmark, or measurement methodology. According to SKILL.md's Phase 4 gate, does this claim pass the evidence grounding requirement? Answer YES or NO.
 >
 > A: **NO**

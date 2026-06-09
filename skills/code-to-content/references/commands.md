@@ -6,7 +6,7 @@ Complete reference for all code-to-content slash commands.
 
 ## Full Mode Commands (All 5 Phases)
 
-These commands enforce the complete 5-phase process with all gates and confirmations.
+These commands enforce the complete 6-phase process with all gates and confirmations.
 
 | Command | Usage | Description |
 |---------|-------|-------------|
@@ -71,12 +71,12 @@ All commands are located in `.claude/commands/c2c/`.
 
 ### Full Mode Flow
 ```
-Phase 1 ──[Gate + Confirm]──> Phase 2 ──[Gate + Confirm]──> Phase 3 ──[Gate]──> Phase 4 ──[Gate]──> Phase 5 ──[Gate]──> DELIVERY
+Phase 1 ──[Gate]──> Phase 2 ──[Gate*+Confirm]──> Phase 3 ──[Gate+Confirm]──> Phase 4 ──[Gate]──> Phase 5 ──[Gate]──> Phase 6 ──[Gate]──> DELIVERY
 ```
 
 ### Quick Mode Flow (example: quick-twitter)
 ```
-Phase 3 ──[Gate]──> Phase 5 ──[Gate]──> DELIVERY
+Phase 3 ──[Gate]──> Phase 4 ──[Gate]──> Phase 6 ──[Gate]──> DELIVERY   (quick mode skips 1, 2, 5)
 ```
 
 ### Cascade Mode Flow

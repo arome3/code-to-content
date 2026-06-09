@@ -24,7 +24,9 @@ Let's dive in.
 
 ## Featured: [Title]
 
-[COMMENTARY: 2-4 paragraphs of your unique perspective on this item. Don't just summarize—add insight, context, or opinion that readers can't get elsewhere.]
+[OPEN ON THE WHY: 1-2 sentences of thesis/stakes from the Differentiation Brief — the belief that makes this worth their attention. Not "here's a thing that happened."]
+
+[COMMENTARY: 2-4 paragraphs of your unique perspective. Don't just summarize—add insight, context, or opinion readers can't get elsewhere. Include at least one SPIKY CLAIM you'd defend, and, where relevant, a ROAD NOT TAKEN (what you/they chose not to do and why). Cheap writing reads like four people each added a caveat — don't.]
 
 [TAKEAWAY: What should readers remember or do?]
 

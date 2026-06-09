@@ -1,12 +1,14 @@
 # /c2c:blog
 
-Generate a technical blog post using the mandatory 5-phase process with optional agent parallelization.
+Generate a technical blog post using the mandatory 6-phase process with optional agent parallelization.
 
 **Usage:** `/c2c:blog [path-to-project]`
 
 ---
 
 ## Reference Loading
+
+- `references/differentiation.md` (Phase 2 + Phase 6, always)
 
 Load only these references for blog posts:
 - `references/phase-gates.md` (always)
@@ -15,12 +17,12 @@ Load only these references for blog posts:
 - `references/optimization.md#seo`
 - `references/optimization.md#storytelling`
 - `references/checklists.md#blog`
-- `references/readability-guide.md` (Phase 5)
+- `references/readability-guide.md` (Phase 6)
 - `references/code-snippets.md` (if post includes code visuals)
 
 ---
 
-## Phase 1: Project Analysis
+## Phase 1: Code Analysis
 
 Choose execution mode based on project complexity:
 
@@ -56,7 +58,23 @@ Extract:
 
 ---
 
-## Phase 2: Audience Declaration
+## Phase 2: Differentiation Discovery
+
+Load `references/differentiation.md` and `references/project-analysis.md`. **Always offer this; never block on it.**
+
+Offer the user (one message): "To make this unmistakably yours — something a competitor couldn't republish — I can (a) ask 4–5 quick questions, (b) take raw material (a Slack thread, support tickets, a voice-memo transcript, rough notes), or (c) polish a rough draft you write. Or I proceed from the code alone."
+
+Extract into a **Differentiation Brief** (append to the Project Brief):
+- **THE WHY** — the thesis/stakes to lead with, not a feature list
+- **THE SPIKY CLAIM** — one defensible opinion a reader could disagree with
+- **ROADS NOT TAKEN** — what you chose not to build + the trade-off
+- **FOUNDER VOICE** — how they write, captured as rejections (becomes the primary voice in Phase 3)
+
+**Gate (soft — never blocks):** Differentiation Brief produced; forecast set to ON TRACK (>=1 of WHY/opinion/roads captured) or AT RISK (code only). If declined, proceed on code alone and carry `Distinctiveness: AT RISK` to Phase 6.
+
+---
+
+## Phase 3: Audience Declaration
 
 Ask user or infer from context:
 - **Who** is this for? (beginner/intermediate/expert)
@@ -73,7 +91,7 @@ Declare:
 
 ---
 
-## Phase 3: Content Generation
+## Phase 4: Content Generation
 
 Use template: `assets/templates/blog_post.md`
 
@@ -93,7 +111,7 @@ Ground ALL claims in evidence from Phase 1.
 
 ---
 
-## Phase 4: Optimization
+## Phase 5: Optimization
 
 Optionally launch `format-specialist` agent for blog optimization, or apply inline:
 
@@ -116,7 +134,9 @@ If blog includes code examples that need hero images or shareable visuals:
 
 ---
 
-## Phase 5: Verification
+## Phase 6: Verification
+
+Also run the **distinctiveness** check from `references/differentiation.md`: the swap-the-name test ("swap in a competitor's name — does it still read fine? then it failed"), the AI-tells blocklist, and record the **Distinctiveness Score (0-5)**. REPORTED, never blocking — if 0-2, surface `AT RISK` and offer Phase 2.
 
 Choose execution mode:
 

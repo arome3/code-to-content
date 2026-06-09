@@ -8,7 +8,7 @@ Pre-delivery verification steps. You MUST run these checks before delivering con
 
 **You MUST verify each phase gate before proceeding. These checks are BLOCKING.**
 
-### Phase 1 Gate: Project Brief Generated
+### Phase 1 Gate: Code Brief Generated
 ```
 [BLOCKING] Tech stack identified
 [BLOCKING] At least 3 content angles discovered
@@ -18,18 +18,30 @@ STOP CONDITION: No content-worthy insights after analysis
 → Action: Request different project or narrow scope
 ```
 
-### Phase 2 Gate: Audience Contract Established
+### Phase 2 Gate: Differentiation Forecast Set (SOFT — never blocks)
+```
+[ ] Offer made (questions / raw material / ugly-draft / opt-out)
+[ ] Differentiation Brief produced (fields filled OR "none captured")
+[ ] Forecast set: ON TRACK or AT RISK
+
+NOT A STOP CONDITION: AT RISK (declined founder input) is allowed.
+→ Action: Proceed on code alone; carry AT RISK flag to Phase 6 report.
+```
+
+### Phase 3 Gate: Audience Contract Established
 ```
 [BLOCKING] Single audience selected (beginner/intermediate/expert)
 [BLOCKING] Format matches audience complexity
-[BLOCKING] Voice profile declared based on tech stack
+[BLOCKING] Voice profile declared (founder voice primary; tech-stack fallback)
 
 STOP CONDITION: Audience mixing detected
 → Action: Request single audience from user
 ```
 
-### Phase 3 Gate: Draft Complete with Evidence
+### Phase 4 Gate: Draft Complete with Evidence
 ```
+[BLOCKING] Leads with the WHY, not a feature list
+[BLOCKING] Captured spiky claim / road-not-taken present (unless brief said "none captured")
 [BLOCKING] All code examples from actual codebase
 [BLOCKING] All metrics/claims traceable to source
 [BLOCKING] Template structure followed
@@ -38,25 +50,26 @@ STOP CONDITION: Claims cannot be traced to evidence
 → Action: Remove claim or find supporting evidence
 ```
 
-### Phase 4 Gate: Enhancement Applied
+### Phase 5 Gate: Enhancement Applied
 ```
-[BLOCKING] Voice consistent throughout
+[BLOCKING] Voice consistent throughout (matches captured founder voice + rejections)
 [BLOCKING] Cognitive load appropriate for declared audience
 [ ] SEO applied (if web content)
 [ ] Visual assets prepared (if applicable)
 ```
 
-### Phase 5 Gate: Delivery Approved
+### Phase 6 Gate: Delivery Approved
 ```
 [BLOCKING] Format-specific checklist: 100% BLOCKING items pass
 [BLOCKING] Readability validation: PASS
 [BLOCKING] Evidence verification: all claims grounded
+[REPORTED] Distinctiveness: swap-the-name verdict + score (0–5) recorded — NOT blocking
 
-FINAL CHECK: Run analyze_readability.py --validate --audience <type>
-→ Expected output: PASS
-→ If FAIL: Revise content and re-run
+FINAL CHECK: Claude-native readability estimate vs thresholds (optional: legacy/analyze_readability.py)
+→ Expected: PASS
+→ If FAIL: Revise content and re-check
 
-DO NOT DELIVER until all [BLOCKING] items pass.
+DO NOT DELIVER until all [BLOCKING] items pass. Distinctiveness AT RISK → warn loudly, deliver anyway.
 ```
 
 ---
@@ -71,9 +84,9 @@ Content MUST pass these thresholds for the declared audience:
 | Intermediate | 12.0 | 4% | 1:1 |
 | Expert | 16.0 | 8% | 0.5:1 |
 
-**Validation Command:**
+**Validation:** Claude-native estimate against the thresholds above. Optional opt-in helper:
 ```bash
-python scripts/analyze_readability.py content.md --audience <type> --validate
+python skills/code-to-content/legacy/analyze_readability.py content.md --audience <type> --validate
 ```
 
 ---
@@ -123,6 +136,40 @@ POLISH:
 
 ---
 
+## Distinctiveness Checklist [REPORTED — never blocking]
+
+Run on ALL content. This is the swap-the-name layer; see `references/differentiation.md`. Record results in the Quality Report — do NOT block delivery on them.
+
+```
+SWAP-THE-NAME TEST:
+[ ] Cover the logo, replace the product name with a competitor's — does it STILL read fine?
+    → If yes: FAIL. Content is swappable. Surface AT RISK and offer to run Phase 2.
+
+THE THREE MOVES (≥1 required to clear AT RISK):
+[ ] WHY leads — opens on a thesis/stakes, not "We're excited to announce [feature]"
+[ ] One defensible OPINION — a claim a reasonable reader could disagree with
+[ ] One ROAD NOT TAKEN — something they chose not to build + the trade-off
+
+AI-TELLS SCAN (rewrite every hit):
+[ ] No "We're excited / thrilled to announce…"
+[ ] No "not just X — it's Y" / "it's not about A, it's about B"
+[ ] No "in today's fast-paced / ever-evolving world…"
+[ ] No delve / leverage / seamless / robust / tapestry / testament / realm / foster
+[ ] No rule-of-three + em-dash hype cadence ("fast, simple, and powerful — built for you")
+
+HEDGE SCAN (opinions only — facts about stability may stay honest):
+[ ] No softened thesis ("this might possibly be a slightly better approach for some")
+[ ] Conviction intact regardless of version (epistemic vs rhetorical, see brand-voice.md)
+
+VOICE:
+[ ] Carries the captured founder voice, not a tech-stack default
+[ ] Honors the founder's rejections (words/punctuation/tone they said never to use)
+
+SCORE: ___/5  ·  SWAP-THE-NAME: PASS / AT RISK  ·  FOUNDER INPUT: used / declined
+```
+
+---
+
 ## Blog Post Checklist
 
 ```
@@ -134,6 +181,7 @@ TITLE:
 
 OPENING (first 100 words):
 [ ] Hook captures reader immediately
+[ ] Leads with the WHY/thesis, not a feature list or "We're excited to announce…"
 [ ] Problem or outcome is stated
 [ ] No "In this post, I will..." phrasing
 [ ] Reader knows what they will learn
@@ -299,6 +347,11 @@ PROJECT INFO:
 [ ] Architecture overview if complex
 [ ] Contributing guidelines if applicable
 [ ] License specified
+
+DESIGN PHILOSOPHY (the differentiator — avoids the swappable feature-list README):
+[ ] States WHY it exists / what it believes, not just what it does
+[ ] "What this deliberately does NOT do" section present (roads not taken + trade-off)
+[ ] A reader could not swap in a competing library's name and have it still read fine
 ```
 
 ---

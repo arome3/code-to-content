@@ -231,10 +231,11 @@ See you in the next one."
 | Gate | Status | Evidence |
 |------|--------|----------|
 | Phase 1 | ✅ | Tech stack: React, TypeScript, lottie-web |
-| Phase 2 | ✅ | Audience: Beginner-intermediate, Format: Video script |
-| Phase 3 | ✅ | All code from lottie-react documentation |
-| Phase 4 | ✅ | Paced sections, visual cues noted |
-| Phase 5 | ✅ | Conversational script, clear demonstrations |
+| Phase 2 (Differentiation) | ⚠️ | Pre-dates this phase — distinctiveness from code only; rerun with Phase 2 to add WHY/opinion/roads |
+| Phase 3 | ✅ | Audience: Beginner-intermediate, Format: Video script |
+| Phase 4 | ✅ | All code from lottie-react documentation |
+| Phase 5 | ✅ | Paced sections, visual cues noted |
+| Phase 6 | ✅ | Conversational script, clear demonstrations |
 
 ---
 

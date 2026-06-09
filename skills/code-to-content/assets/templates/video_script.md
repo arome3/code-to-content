@@ -35,11 +35,11 @@ Delete these instructions when using this template.
 
 **[SAY]:**
 ```
-[Opening line - this is the most important part of your video.
-Immediately communicate the value. What will they be able to DO?]
+[Opening line - the most important part of your video. Lead with the WHY/thesis
+from the Differentiation Brief — the belief or stakes — then the value, not a feature list.]
 
-"In the next [X] minutes, you'll [specific outcome].
-By the end, you'll understand [concept] and be able to [practical skill]."
+"Most people [do the obvious thing]. Here's why that's wrong — and what to do instead.
+In the next [X] minutes, you'll [specific outcome]."
 
 [Optional: brief credibility - "I've used this in production at..." ]
 ```
@@ -104,7 +104,9 @@ If something looks different, [quick troubleshooting hint]."
 
 [Explanation while doing]
 
-The key insight here is [important concept]."
+The key insight here is [important concept].
+
+[ROAD NOT TAKEN: 'You might expect us to [obvious approach] here. We didn't, because [trade-off].' — from the Differentiation Brief.]"
 ```
 
 **[DO]:**

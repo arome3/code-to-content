@@ -17,6 +17,8 @@ Generate a LinkedIn post quickly when you already have your topic and know your 
 - Time-sensitive content needed fast
 - Iterating on existing content
 
+> **Differentiation (lite):** Quick mode skips the interview, but still lead with the WHY (not a feature list) and land one defensible opinion. Want it unmistakably yours — something a competitor couldn't republish? Share the why, a rejected alternative, or a rough draft. See `references/differentiation.md`.
+
 ## Process
 
 1. **Load Format Reference**

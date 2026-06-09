@@ -115,10 +115,11 @@ def get_grep_process(partition: str, search_string: str) -> Popen:
 | Gate | Status | Evidence |
 |------|--------|----------|
 | Phase 1 | ✅ | Tech stack: Python, Textual, asyncio/threading |
-| Phase 2 | ✅ | Audience: Intermediate+, Format: Conference talk |
-| Phase 3 | ✅ | All code from recoverpy/lib/helper.py and search_engine.py |
-| Phase 4 | ✅ | Clear narrative arc, timed sections |
-| Phase 5 | ✅ | Appropriate technical depth for conference audience |
+| Phase 2 (Differentiation) | ⚠️ | Pre-dates this phase — distinctiveness from code only; rerun with Phase 2 to add WHY/opinion/roads |
+| Phase 3 | ✅ | Audience: Intermediate+, Format: Conference talk |
+| Phase 4 | ✅ | All code from recoverpy/lib/helper.py and search_engine.py |
+| Phase 5 | ✅ | Clear narrative arc, timed sections |
+| Phase 6 | ✅ | Appropriate technical depth for conference audience |
 
 ---
 

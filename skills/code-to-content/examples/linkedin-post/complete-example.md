@@ -57,10 +57,11 @@ Have you ever recovered something you thought was permanently lost?
 | Gate | Status | Evidence |
 |------|--------|----------|
 | Phase 1 | ✅ | Tech stack: Python, Textual TUI |
-| Phase 2 | ✅ | Audience: Intermediate devs, Format: LinkedIn |
-| Phase 3 | ✅ | All claims from actual RecoverPy codebase |
-| Phase 4 | ✅ | Voice consistent, scannable structure |
-| Phase 5 | ✅ | Checklist passed, readability verified |
+| Phase 2 (Differentiation) | ⚠️ | Pre-dates this phase — distinctiveness from code only; rerun with Phase 2 to add WHY/opinion/roads |
+| Phase 3 | ✅ | Audience: Intermediate devs, Format: LinkedIn |
+| Phase 4 | ✅ | All claims from actual RecoverPy codebase |
+| Phase 5 | ✅ | Voice consistent, scannable structure |
+| Phase 6 | ✅ | Checklist passed, readability verified |
 
 ---
 

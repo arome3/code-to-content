@@ -244,7 +244,8 @@ calendar.init();
 | Gate | Status | Evidence |
 |------|--------|----------|
 | Phase 1 | ✅ | Tech stack: TypeScript, Vite, zero deps |
-| Phase 2 | ✅ | Audience: Beginner-intermediate, Format: Tutorial |
-| Phase 3 | ✅ | All code from vanilla-calendar-pro docs/examples |
-| Phase 4 | ✅ | Progressive disclosure, checkpoints after each step |
-| Phase 5 | ✅ | Grade level ~8, jargon <2%, 2:1 prose:code |
+| Phase 2 (Differentiation) | ⚠️ | Pre-dates this phase — distinctiveness from code only; rerun with Phase 2 to add WHY/opinion/roads |
+| Phase 3 | ✅ | Audience: Beginner-intermediate, Format: Tutorial |
+| Phase 4 | ✅ | All code from vanilla-calendar-pro docs/examples |
+| Phase 5 | ✅ | Progressive disclosure, checkpoints after each step |
+| Phase 6 | ✅ | Grade level ~8, jargon <2%, 2:1 prose:code |

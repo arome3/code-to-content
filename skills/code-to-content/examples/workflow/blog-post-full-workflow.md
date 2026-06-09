@@ -1,6 +1,6 @@
 # Complete Workflow Example: Blog Post
 
-This document shows the **complete 5-phase workflow** for creating a blog post,
+This document shows the **complete 6-phase workflow** for creating a blog post,
 with actual outputs at each phase and gate verification at each transition.
 
 **Scenario:** User requests a blog post about their FastAPI caching implementation.
@@ -15,7 +15,7 @@ Analyze the codebase to understand what exists and identify story-worthy element
 
 ### Actions Taken
 
-1. Ran `analyze_codebase.py --output json`
+1. Analyzed the codebase Claude-natively (read dependency files, mapped structure)
 2. Examined git history for significant commits
 3. Identified patterns and architectural decisions
 
@@ -87,7 +87,40 @@ project_brief:
 
 ---
 
-## Phase 2: Audience Lock-In
+## Phase 2: Differentiation Discovery
+
+### Task
+
+Get the WHY, the opinion, and the roads not taken from the human — the material the code can't contain. Always offered, never blocking.
+
+### The Offer (presented to the user)
+
+> "Your commits show a pickle→msgpack swap with a 73% latency win — strong material. To make this post unmistakably *yours*, I can ask 3 quick questions, take a Slack thread / voice memo, or polish a rough draft. Or I write from the code alone. Which?"
+
+User chose: **3 quick questions.**
+
+### Captured
+
+- **WHY:** "We kept blaming Redis for our p99. It wasn't Redis — it was that we serialized 40KB of Python objects on every cache write. The bottleneck was our own convenience."
+- **SPIKY CLAIM:** "Reaching for a faster cache before you profile your serializer is cargo-cult performance work. Most 'Redis is slow' posts are really 'pickle is slow' posts."
+- **ROAD NOT TAKEN:** "We considered dropping Redis for an in-process LRU. It would've tested faster in the demo and saved a network hop — we didn't, because we'd lose cross-worker sharing, and the real cost was serialization, not the hop."
+- **FOUNDER VOICE:** sounds like blunt, first-person, war-story · never "we're excited to" · source: interview
+
+### Phase 2 Output: Differentiation Brief
+
+```
+THE WHY:           The bottleneck was our own convenience (serializing 40KB on every write), not Redis.
+THE SPIKY CLAIM:   "Redis is slow" posts are usually "pickle is slow" posts. Profile the serializer first.
+ROADS NOT TAKEN:   In-process LRU (faster in demo, loses cross-worker sharing) — rejected; the cost was serialization, not the hop.
+FOUNDER VOICE:     blunt, first-person war-story; never "we're excited to"
+DISTINCTIVENESS FORECAST: ON TRACK (WHY + opinion + road all captured)
+```
+
+**Gate 2 (soft): PASSED — ON TRACK** → Proceed to Phase 3
+
+---
+
+## Phase 3: Audience Lock-In
 
 ### Task
 
@@ -105,7 +138,7 @@ Given the tech stack (FastAPI, Redis, SQLAlchemy) and story (performance optimiz
 - **Not experts:** The patterns are established, not cutting-edge
 - **Best fit:** Intermediate backend developers who know Python but haven't implemented production caching
 
-### Phase 2 Output: Audience Profile
+### Phase 3 Output: Audience Profile
 
 ```yaml
 audience_profile:
@@ -147,7 +180,7 @@ audience_profile:
     The before/after structure matches their learning style.
 ```
 
-### Gate 2 Verification
+### Gate 3 Verification
 
 | Requirement | Status | Evidence |
 |-------------|--------|----------|
@@ -156,11 +189,11 @@ audience_profile:
 | Voice parameters set | ✓ PASS | Tone, jargon tolerance, readability targets |
 | Content angle selected | ✓ PASS | Angle #1 (performance story) |
 
-**Gate 2: PASSED** → Proceed to Phase 3
+**Gate 3: PASSED** → Proceed to Phase 4
 
 ---
 
-## Phase 3: Deep-Dive Research
+## Phase 4: Deep-Dive Research
 
 ### Task
 
@@ -169,7 +202,7 @@ Gather evidence to support every claim in the upcoming draft.
 ### Input
 
 - Project brief from Phase 1 (commits, metrics, patterns)
-- Audience profile from Phase 2 (what they know, what to explain)
+- Audience profile from Phase 3 (what they know, what to explain)
 
 ### Actions Taken
 
@@ -177,7 +210,7 @@ Gather evidence to support every claim in the upcoming draft.
 2. Pulled exact metrics from commits
 3. Identified the "why" behind each decision
 
-### Phase 3 Output: Evidence Collection
+### Phase 4 Output: Evidence Collection
 
 ```yaml
 evidence_collection:
@@ -277,7 +310,7 @@ evidence_collection:
     payoff: "Production-ready caching in 50 lines"
 ```
 
-### Gate 3 Verification
+### Gate 4 Verification
 
 | Requirement | Status | Evidence |
 |-------------|--------|----------|
@@ -285,11 +318,11 @@ evidence_collection:
 | Code snippets extracted | ✓ PASS | 3 snippets with file paths and line numbers |
 | Narrative arc defined | ✓ PASS | Hook → Problem → Journey → Payoff |
 
-**Gate 3: PASSED** → Proceed to Phase 4
+**Gate 4: PASSED** → Proceed to Phase 5
 
 ---
 
-## Phase 4: Structured Draft
+## Phase 5: Structured Draft
 
 ### Task
 
@@ -297,8 +330,8 @@ Write the full draft using the blog_post.md template.
 
 ### Input
 
-- Audience profile from Phase 2 (voice, jargon tolerance)
-- Evidence collection from Phase 3 (claims, snippets, arc)
+- Audience profile from Phase 3 (voice, jargon tolerance)
+- Evidence collection from Phase 4 (claims, snippets, arc)
 
 ### Template Applied
 
@@ -308,7 +341,7 @@ Using `assets/templates/blog_post.md` structure:
 - Journey (3 key insights)
 - Payoff (transformation achieved)
 
-### Phase 4 Output: Full Draft
+### Phase 5 Output: Full Draft
 
 ```markdown
 # How We Cut API Response Time from 890ms to 145ms
@@ -447,20 +480,20 @@ Commit `a3f7c2d` is where the magic happens.
 traffic patterns. Metrics from PostgreSQL pg_stat_statements and Redis INFO.*
 ```
 
-### Gate 4 Verification
+### Gate 5 Verification
 
 | Requirement | Status | Evidence |
 |-------------|--------|----------|
 | Template structure followed | ✓ PASS | Hook → Problem → Journey → Payoff |
-| All code snippets from Phase 3 | ✓ PASS | 3/3 snippets included |
-| Claims match evidence | ✓ PASS | All metrics traceable to Phase 3 |
+| All code snippets from Phase 4 | ✓ PASS | 3/3 snippets included |
+| Claims match evidence | ✓ PASS | All metrics traceable to Phase 4 |
 | Hook present (not meta) | ✓ PASS | Opens with outcome, not "In this article" |
 
-**Gate 4: PASSED** → Proceed to Phase 5
+**Gate 5: PASSED** → Proceed to Phase 6
 
 ---
 
-## Phase 5: Quality Gate
+## Phase 6: Quality Gate
 
 ### Task
 
@@ -468,14 +501,14 @@ Verify the draft meets all quality thresholds before delivery.
 
 ### Input
 
-- Full draft from Phase 4
-- Audience profile from Phase 2 (readability targets)
+- Full draft from Phase 5
+- Audience profile from Phase 3 (readability targets)
 
 ### Quality Checks Performed
 
 #### 1. Readability Analysis
 
-Ran `analyze_readability.py` on the draft:
+Estimated readability Claude-natively (Flesch-Kincaid) on the draft:
 
 ```
 Flesch-Kincaid Grade Level: 9.2
@@ -537,7 +570,21 @@ Opening line: "Our checkout API was losing users."
 
 **Result:** ✓ PASS
 
-### Gate 5 Verification
+#### 6. Distinctiveness (reported, never blocking)
+
+Swap-the-name test: replaced "our checkout API" framing with a generic competitor — **does NOT read the same**, because the post hinges on the captured thesis ("Redis is slow" posts are really "pickle is slow" posts) and the rejected in-process-LRU road. Both came from Phase 2.
+
+| Move | Present? |
+|------|----------|
+| Leads with the WHY (own-convenience bottleneck) | ✓ |
+| Defensible opinion (profile the serializer first) | ✓ |
+| Road not taken (in-process LRU + trade-off) | ✓ |
+| Founder voice (blunt, first-person) | ✓ |
+| Swap-the-name | PASS |
+
+**Distinctiveness Score: 5/5 · Swap-the-name: PASS · Founder input: used (interview)**
+
+### Gate 6 Verification
 
 | Requirement | Status | Evidence |
 |-------------|--------|----------|
@@ -546,8 +593,9 @@ Opening line: "Our checkout API was losing users."
 | Hook quality verified | ✓ PASS | Opens with outcome |
 | All claims grounded | ✓ PASS | 4/4 traceable |
 | Template complete | ✓ PASS | All sections present |
+| Distinctiveness reported | ✓ 5/5 | Swap-the-name PASS (reported, not gated) |
 
-**Gate 5: PASSED** → Ready for Delivery
+**Gate 6: PASSED** → Ready for Delivery
 
 ---
 
@@ -606,24 +654,26 @@ Opening line: "Our checkout API was losing users."
 
 Notice how each phase's output becomes the next phase's input:
 
-1. **Phase 1 → Phase 2:** Tech stack (FastAPI, Redis) informed audience selection
+1. **Phase 1 → Phase 2:** Code analysis (pickle→msgpack commit) seeded sharper interview questions
+2. **Phase 2 → Phase 4:** The captured WHY/opinion/road shaped the draft's spine, not just the evidence
+3. **Phase 1 → Phase 3:** Tech stack (FastAPI, Redis) informed audience selection
    (not beginners—they wouldn't know async/await)
 
-2. **Phase 2 → Phase 3:** Audience profile (4% jargon max) guided which code
+2. **Phase 3 → Phase 4:** Audience profile (4% jargon max) guided which code
    snippets to include (simple decorator, not the full implementation)
 
-3. **Phase 3 → Phase 4:** Evidence collection structured the narrative
+3. **Phase 4 → Phase 5:** Evidence collection structured the narrative
    (3 solutions matching 3 code snippets)
 
-4. **Phase 4 → Phase 5:** Draft checked against Phase 2's readability targets
+4. **Phase 5 → Phase 6:** Draft checked against Phase 3's readability targets
    (grade 9.2 vs. target ≤12.0)
 
 ### Gate Verification Prevents Drift
 
-Without gates, Phase 4 might have:
-- Mixed beginner and expert content (Gate 2 prevents)
-- Made ungrounded performance claims (Gate 3 prevents)
-- Opened with "In this article..." (Gate 5 catches)
+Without gates, Phase 5 might have:
+- Mixed beginner and expert content (Gate 3 prevents)
+- Made ungrounded performance claims (Gate 4 prevents)
+- Opened with "In this article..." (Gate 6 catches)
 
 ### The 5-Phase Process is Non-Negotiable
 
@@ -632,10 +682,10 @@ Skipping phases causes failures:
 | Skip | Consequence |
 |------|-------------|
 | Phase 1 | No story-worthy elements → generic content |
-| Phase 2 | Audience mixing → inconsistent jargon levels |
-| Phase 3 | Ungrounded claims → credibility loss |
-| Phase 4 | No template → missing structure |
-| Phase 5 | Quality violations → unprofessional output |
+| Phase 3 | Audience mixing → inconsistent jargon levels |
+| Phase 4 | Ungrounded claims → credibility loss |
+| Phase 5 | No template → missing structure |
+| Phase 6 | Quality violations → unprofessional output |
 
 ---
 
@@ -644,13 +694,13 @@ Skipping phases causes failures:
 ```
 [✓] Phase 1 completed - Project brief generated
 [✓] Gate 1 passed - 3+ angles, story element found
-[✓] Phase 2 completed - Audience profile locked
-[✓] Gate 2 passed - Single audience, voice params set
-[✓] Phase 3 completed - Evidence collected
-[✓] Gate 3 passed - All claims grounded
-[✓] Phase 4 completed - Draft written
-[✓] Gate 4 passed - Template followed, hook present
-[✓] Phase 5 completed - Quality verified
-[✓] Gate 5 passed - All thresholds met
+[✓] Phase 3 completed - Audience profile locked
+[✓] Gate 3 passed - Single audience, voice params set
+[✓] Phase 4 completed - Evidence collected
+[✓] Gate 4 passed - All claims grounded
+[✓] Phase 5 completed - Draft written
+[✓] Gate 5 passed - Template followed, hook present
+[✓] Phase 6 completed - Quality verified
+[✓] Gate 6 passed - All thresholds met
 [✓] DELIVERED
 ```

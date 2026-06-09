@@ -24,27 +24,35 @@ Verify all phase gates have been satisfied:
 [BLOCKING] Story-worthy element found with evidence
 ```
 
-**Phase 2 Gate: Audience Contract**
+**Phase 2 Gate: Differentiation (SOFT — never blocks)**
+```
+[ ] Offer made (questions / raw material / ugly-draft / opt-out)
+[ ] Differentiation Brief produced (WHY / opinion / roads / voice, or "none captured")
+[ ] Forecast set: ON TRACK or AT RISK
+NOT a STOP: AT RISK is allowed; carry it to the Phase 6 report.
+```
+
+**Phase 3 Gate: Audience Contract**
 ```
 [BLOCKING] Single audience selected (no mixing)
 [BLOCKING] Format matches audience complexity
 [BLOCKING] Voice profile declared
 ```
 
-**Phase 3 Gate: Evidence Grounding**
+**Phase 4 Gate: Evidence Grounding**
 ```
 [BLOCKING] All code examples from actual codebase
 [BLOCKING] All metrics/claims traceable to source
 [BLOCKING] Template structure followed
 ```
 
-**Phase 4 Gate: Optimization**
+**Phase 5 Gate: Optimization**
 ```
 [BLOCKING] Voice consistent throughout
 [BLOCKING] Cognitive load appropriate for audience
 ```
 
-**Phase 5 Gate: Delivery**
+**Phase 6 Gate: Delivery**
 ```
 [BLOCKING] Format checklist passed
 [BLOCKING] Readability validation passed
@@ -211,11 +219,28 @@ Check for voice drift:
 - Technical depth inconsistency
 - Personality shifts mid-content
 
-**Stack-Specific Voice:**
+**Voice source:** Check against the captured FOUNDER VOICE first (including its rejections — e.g., "never semicolons"). The stack-specific defaults below are a FALLBACK used only when no founder voice was captured:
 - Rust: Precise, safety-conscious → Check for casual drift
 - JavaScript: Pragmatic → Check for over-formality
 - Python: Accessible → Check for unnecessary complexity
 - Go: Direct, minimal → Check for verbosity
+
+---
+
+### 6. Distinctiveness [REPORTED — never blocking]
+
+The swap-the-name layer (see `references/differentiation.md`). Report findings and a score; do NOT block delivery on them.
+
+**Swap-the-name test:** Mentally replace the product/author name with a competitor's. If the piece still reads fine, it FAILS — flag `AT RISK`.
+
+**The three moves (>=1 needed to clear AT RISK):**
+- Leads with the WHY/thesis, not a feature list
+- Holds one defensible opinion a reader could disagree with
+- Names one road not taken + its trade-off
+
+**AI-tells scan (rewrite each hit):** "We're excited to announce", "not just X — it's Y", "in today's fast-paced world", delve/leverage/seamless/robust/tapestry, rule-of-three + em-dash hype.
+
+**Report:** `Distinctiveness Score: N/5 · Swap-the-name: PASS/AT RISK · Founder input: used/declined`. A score of 0–2 → surface `AT RISK` prominently and recommend running Phase 2 before publishing.
 
 ---
 
