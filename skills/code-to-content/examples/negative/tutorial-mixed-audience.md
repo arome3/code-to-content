@@ -2,7 +2,7 @@
 
 ## Gate Failed
 
-**Phase 5 Gate** — Readability Threshold
+**Phase 6 Gate** — Readability Threshold
 
 ## Rule Violated
 
@@ -100,6 +100,6 @@ automatically refreshes what you see on screen.
 
 ## Related Evaluation Question
 
-> Q: Content targeting beginner developers has a Flesch-Kincaid grade level of 13.5. According to the Readability Thresholds table in SKILL.md, does this PASS or FAIL the Phase 5 gate?
+> Q: Content targeting beginner developers has a Flesch-Kincaid grade level of 13.5. According to the Readability Thresholds table in SKILL.md, does this PASS or FAIL the Phase 6 gate?
 >
 > A: **FAIL**

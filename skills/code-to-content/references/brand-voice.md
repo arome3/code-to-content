@@ -4,13 +4,54 @@ Instructions for determining and applying voice when generating project content.
 
 ---
 
+## Voice Source Priority
+
+Voice is a person, not a programming language. A real voice is captured from the builder in Phase 2 (Differentiation Discovery); the tech-stack and domain tables below are **fallback heuristics**, used only when no founder voice was captured.
+
+```
+VOICE SOURCE PRIORITY (highest fidelity first):
+1. FOUNDER VOICE (primary)   → captured in Phase 2: how they actually write,
+                               especially what they REJECT (see next section).
+                               A rough draft or voice-memo transcript outranks everything.
+2. CODE COMMENT STYLE         → the voice already present in their own comments.
+3. TECH-STACK / DOMAIN TABLES → community-norm fallback ONLY when 1 and 2 are absent.
+                               These produce a competent, swappable default — never a
+                               distinctive one. Treat as a floor, not a target.
+```
+
+If the Differentiation Brief contains a FOUNDER VOICE section, use it as the base voice and skip straight to "Adjust for Audience." Use the tables below to fill gaps, not to override a captured voice.
+
+---
+
+## Voice = What You Reject
+
+The sharpest part of anyone's voice is what they refuse to do. A voice profile built from likes ("I like direct writing") is vague; one built from **rejections** is specific and enforceable.
+
+Weak: *"Write in a clear, professional voice."*
+Strong: *"Never use semicolons — they make it sound like a college essay. Never open with a definition. Never hedge a claim I actually believe. Contractions always."*
+
+When capturing founder voice in Phase 2, prefer to record the anti-patterns:
+
+```
+FOUNDER VOICE — capture as rejections:
+├── Words/phrases they would never use:  ___
+├── Punctuation/structure they avoid:     ___  (e.g., "no semicolons", "no rule-of-three")
+├── Formality they refuse:                ___  (e.g., "never corporate", "never cutesy")
+├── Sentences they'd never sign:          ___  (paste one a competitor would write)
+└── A line they HAVE written that sounds like them:  ___  (the positive anchor)
+```
+
+Apply the rejections as hard constraints during generation, and check them again in Phase 6 alongside the AI-tells blocklist in `differentiation.md`.
+
+---
+
 ## Voice Calibration Sequence
 
 Execute this sequence before generating any content.
 
 ### Step 1: Extract Voice Signals
 
-Identify these signals from the codebase:
+If a captured FOUNDER VOICE exists, it is the base voice — these codebase signals only fill gaps. Identify from the codebase:
 
 ```
 REQUIRED INPUTS:
@@ -38,9 +79,9 @@ Scan comments and match patterns to voice traits:
 
 ---
 
-## Apply Tech Stack Voice Rules
+## Apply Tech Stack Voice Rules (Fallback)
 
-Set base voice characteristics from detected stack:
+**Use only when no founder voice was captured.** These encode community norms, which makes them safe but swappable — every Rust project sounds "precise," every JS project sounds "conversational." They prevent a *wrong* voice, not a *generic* one. Set base voice characteristics from detected stack:
 
 ```
 RUST:
@@ -126,43 +167,45 @@ FRAMEWORK INTERNALS + METAPROGRAMMING:
 
 ---
 
-## Calibrate Confidence by Maturity
+## Calibrate Confidence: Two Kinds, Don't Confuse Them
 
-Adjust prescriptiveness based on project version:
+A common mistake is to soften *everything* for early-stage projects. That is backward — early projects often hold the most contrarian, interesting conviction. Separate the two kinds of confidence:
+
+```
+EPISTEMIC confidence  → claims about STABILITY and facts.
+                        Governed by maturity. Be honest. A v0.x API may change.
+                        "This API is still settling" is truthful, not hedging.
+
+RHETORICAL confidence → your THESIS and your OPINION (the WHY, the spiky claim).
+                        NOT governed by maturity. Be bold at every version.
+                        "We think most teams cache the wrong layer" is a v0.1 founder's
+                        right and obligation to say.
+```
+
+The essay's point: hold conviction about *what you believe and why you built it*, regardless of how mature the code is. Hedge only the factual claim that could mislead someone about stability.
 
 ```
 v0.x (EXPERIMENTAL):
-├── Hedge appropriately: "This approach works for now"
-├── Invite feedback: "We're exploring patterns here"
-├── Warn of instability: "Expect changes in future versions"
-└── Apply: Low prescriptiveness, exploratory tone
+├── Epistemic: be honest about churn — "expect this to change"
+├── Rhetorical: state the thesis with full conviction — do NOT hedge the opinion
+└── Result: stable about humility, spiky about belief
 
-v1.0 (INITIAL STABLE):
-├── Balance confidence: "This is the recommended approach"
-├── Acknowledge gaps: "Advanced cases still being documented"
-├── Use "should" over "must"
-└── Apply: Moderate prescriptiveness
-
-v2.x-3.x (MATURE):
-├── Be authoritative: "Use this pattern for production"
-├── Reference established practices
-├── Prescribe directly: "Do X, then Y"
-└── Apply: High prescriptiveness
-
-v4.0+ (LEGACY):
-├── Acknowledge existing implementations
-├── Prioritize migration clarity
-├── Address backward compatibility
-└── Apply: Authoritative but careful
+v1.0+ (STABLE → MATURE):
+├── Epistemic: prescribe production use as it earns it
+├── Rhetorical: same conviction; now backed by a track record
+└── Result: authoritative on both axes
 ```
 
 ### Select Confidence Language
 
-| Maturity | Use | Avoid |
-|----------|-----|-------|
-| v0.x | "might", "consider", "currently" | "always", "must", "the right way" |
-| v1.x | "should", "recommended", "typically" | "must", "only way" |
-| v2.x+ | "use", "do", "the pattern for" | excessive hedging |
+Apply hedges to **stability claims only**. Never hedge the thesis or opinion.
+
+| About… | v0.x | v1.x+ |
+|--------|------|-------|
+| **Stability / facts** (epistemic) | "still settling", "expect changes", "early" | "stable", "production-ready", "battle-tested" |
+| **Thesis / opinion** (rhetorical) | Bold at any version — "we believe", "most teams get this wrong", "the right move is" | Bold — same |
+
+> Anti-pattern (do not do this): softening the *opinion* because the version is low — "this might possibly be a slightly better approach for some users, perhaps." That is the committee voice the swap-the-name test is built to catch.
 
 ---
 
@@ -242,7 +285,8 @@ Hedging ←————————→ Prescriptive
 
 OPINION:
 Reserved ←————————→ Opinionated
-└── Project type determines position
+└── Default to Opinionated. The WHY and the spiky claim are the point of the piece.
+    Dial back ONLY for reference material (API docs) where the reader wants facts, not a thesis.
 ```
 
 ---
@@ -289,8 +333,9 @@ When rapid voice selection needed:
 
 | Avoid | Reason | Instead |
 |-------|--------|---------|
-| Generic voice for all projects | Ignores community norms | Derive from tech stack |
-| Same confidence for v0.1 and v3.0 | Misleads about stability | Match to maturity |
+| Generic voice for all projects | Swappable; no one's voice | Capture founder voice in Phase 2; tech-stack table is fallback only |
+| Hedging the opinion because the version is low | Kills conviction; reads as committee | Hedge stability claims only; keep the thesis bold (epistemic vs rhetorical) |
+| Same *stability* claims for v0.1 and v3.0 | Misleads about maturity | Match epistemic confidence to maturity |
 | Library voice for infrastructure | Wrong operational focus | Match project type |
 | Ignoring code comment style | Disconnects from codebase | Mirror existing patterns |
 | Over-casual for enterprise | Loses credibility | Match domain expectations |

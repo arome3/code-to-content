@@ -315,7 +315,7 @@ phase_1_output:
       - "Connect to origin story"
 ```
 
-### Modified Phase 4: Draft with Continuity
+### Modified Phase 5: Draft with Continuity
 
 When writing the draft, include:
 
@@ -332,7 +332,7 @@ phase_4_checklist:
   - milestone_clearly_stated: true
 ```
 
-### Modified Phase 5: Quality + Journey Verification
+### Modified Phase 6: Quality + Journey Verification
 
 Add these checks:
 
@@ -395,15 +395,16 @@ phase_5_additional:
 
 ## Integration with Existing Skill
 
-This guide **extends** the 5-phase process:
+This guide **extends** the 6-phase process:
 
 | Phase | Standard | + Build-in-Public |
 |-------|----------|-------------------|
 | Phase 1 | Project brief | + Journey context loaded |
-| Phase 2 | Audience lock-in | + Voice consistency check |
-| Phase 3 | Evidence collection | + Previous post callbacks |
-| Phase 4 | Structured draft | + Continuity verification |
-| Phase 5 | Quality gate | + Journey checks added |
+| Phase 2 | Differentiation discovery | + Founder WHY/opinion/roads captured |
+| Phase 3 | Audience lock-in | + Voice consistency check |
+| Phase 4 | Evidence collection | + Previous post callbacks |
+| Phase 5 | Structured draft | + Continuity verification |
+| Phase 6 | Quality gate | + Journey checks added |
 
 The workflow example in `examples/workflow/` shows standalone content creation.
 This guide adds the **continuity layer** for sustained build-in-public.

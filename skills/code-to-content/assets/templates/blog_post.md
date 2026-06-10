@@ -6,7 +6,7 @@ Fill in the bracketed sections. Delete this instruction block when done.
 
 # [TITLE: Promise a specific outcome or insight]
 
-[HOOK PARAGRAPH: Start with the problem, result, or surprising statement. NOT "In this article..." Create immediate curiosity in 2-3 sentences.]
+[HOOK / WHY-LEAD PARAGRAPH: Open on the THESIS — the belief or stakes that made this worth building — NOT a feature list and NOT "We're excited to announce…". The feature is the *consequence* of this claim. State the only-you-know insight from the Differentiation Brief. 2-3 sentences that a competitor could not have written.]
 
 [CONTEXT PARAGRAPH: Brief background. What situation led to this? Just enough for reader to understand what follows. 2-3 sentences.]
 
@@ -37,6 +37,10 @@ Fill in the bracketed sections. Delete this instruction block when done.
 
 [Make the insight explicit—don't make readers guess]
 
+## [SECTION 3.5: Roads Not Taken — what you chose NOT to build]
+
+[From the Differentiation Brief. Name the obvious thing you could have built and why you didn't. "We considered X but chose Y because Z." This is the section AI cannot invent — it turns a feature into a story with real choices. Omit ONLY if the brief marked roads-not-taken "none captured".]
+
 ## [SECTION 4: The Solution]
 
 [Show the solution with clear code and explanation]
@@ -55,6 +59,10 @@ Fill in the bracketed sections. Delete this instruction block when done.
 - [Metric 1: Before → After]
 - [Metric 2: Before → After]
 - [Qualitative improvement]
+
+## [YOUR TAKE: One defensible opinion]
+
+[From the Differentiation Brief. State one spiky, defensible claim a reasonable reader could disagree with — what most people in this space get wrong, and why you do it differently. Don't hedge it. If a competitor would happily sign their name to this sentence, it isn't spiky enough.]
 
 ## [OPTIONAL: Lessons Learned / Broader Implications]
 

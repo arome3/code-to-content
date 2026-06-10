@@ -20,7 +20,7 @@ Delete these instructions when using this template.
 
 ## The Solution
 
-[2-3 sentences describing how this project addresses the problem. What's the approach? What makes it different?]
+[2-3 sentences. Lead with the WHY/belief behind the approach (from the Differentiation Brief), not just the mechanism. What do you believe about this problem that the alternatives don't? That conviction is what makes this README un-swappable.]
 
 ## Quick Start
 
@@ -92,6 +92,18 @@ project/
 ```
 Input → [Parser] → [Processor] → [Output]
 ```
+
+## Design Philosophy
+
+[The section most READMEs skip — and the reason most READMEs are swappable. State what this project believes and the trade-offs it made. From the Differentiation Brief's WHY + Roads Not Taken.]
+
+**What this deliberately does NOT do:**
+
+- [Rejected scope #1] — left to [the app layer / another tool] because [reason]
+- [Rejected scope #2] — chose not to, to keep [the thing you optimized for]
+- [Rejected approach] — considered [obvious alternative], chose [your path] because [trade-off]
+
+[A reader should finish this section knowing what you stand for, not just what you ship. If a competitor could paste their name over this section unchanged, it isn't doing its job.]
 
 ## API Reference
 

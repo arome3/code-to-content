@@ -248,5 +248,5 @@ VALUE DELIVERY:
 **Use Original when:**
 - Platform is primary (Twitter-first thread)
 - Topic is platform-specific
-- Need full 5-phase analysis
+- Need full 6-phase analysis
 - No source content exists

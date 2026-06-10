@@ -17,6 +17,8 @@ Generate a README quickly for standard developer documentation.
 - Project structure is straightforward
 - Quick documentation needed
 
+> **Differentiation (lite):** Quick mode skips the interview, but still lead with the WHY (not a feature list) and land one defensible opinion. Want it unmistakably yours — something a competitor couldn't republish? Share the why, a rejected alternative, or a rough draft. See `references/differentiation.md`.
+
 ## Process
 
 1. **Quick Scan**

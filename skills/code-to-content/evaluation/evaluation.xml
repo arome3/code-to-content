@@ -13,12 +13,16 @@
   - Template structure knowledge (2 questions)
   - Audience profile thresholds (2 questions)
   - Voice calibration rules (2 questions)
-  - Script capabilities (2 questions)
+  - Script capabilities (2 questions) - legacy/ opt-in helpers
   - Reference file content (2 questions)
   - Content quality gates (5 questions) - tests enforcement decisions
+  - Differentiation: Phase 2 + swap-the-name (7 questions) - tests distinctiveness layer
   - Build-in-public workflow (3 questions) - tests journey continuity
 
-  Total: 18 questions
+  Total: 25 questions
+
+  Note: This skill uses a 6-phase process. Phase 2 is Differentiation Discovery
+  (always offered, never blocking). Verification is Phase 6.
 
   Requirements:
   - All questions are read-only and non-destructive
@@ -91,7 +95,7 @@
   </qa_pair>
 
   <qa_pair>
-    <question>Content targeting beginner developers has a Flesch-Kincaid grade level of 13.5. According to the Readability Thresholds table in SKILL.md, does this PASS or FAIL the Phase 5 gate?</question>
+    <question>Content targeting beginner developers has a Flesch-Kincaid grade level of 13.5. According to the Readability Thresholds table in SKILL.md, does this PASS or FAIL the Phase 6 gate?</question>
     <answer>FAIL</answer>
   </qa_pair>
 
@@ -106,8 +110,44 @@
   </qa_pair>
 
   <qa_pair>
-    <question>A blog post claims "performance improved by 50%" but provides no commit hash, file path, or benchmark source. According to Phase 3 Gate requirements in SKILL.md, can this content proceed to Phase 4? Answer YES or NO.</question>
+    <question>A blog post claims "performance improved by 50%" but provides no commit hash, file path, or benchmark source. According to Phase 4 Gate requirements in SKILL.md, can this content proceed to Phase 5? Answer YES or NO.</question>
     <answer>NO</answer>
+  </qa_pair>
+
+  <!-- CATEGORY: Differentiation (Phase 2 + swap-the-name) -->
+  <qa_pair>
+    <question>According to references/differentiation.md, what is the name of the governing test that asks whether a competitor could publish the piece unchanged? Answer with the exact test name.</question>
+    <answer>swap-the-name test</answer>
+  </qa_pair>
+
+  <qa_pair>
+    <question>A product launch post is fully evidence-grounded and passes readability, but swapping in a competitor's name leaves it reading identically. Per SKILL.md's Phase 6 gate, is delivery BLOCKED? Answer YES or NO.</question>
+    <answer>NO</answer>
+  </qa_pair>
+
+  <qa_pair>
+    <question>In Phase 2 (Differentiation Discovery), the user declines the founder interview and you generate from code alone. What distinctiveness flag must be carried to the Phase 6 Quality Report? Answer with the exact two-word flag.</question>
+    <answer>AT RISK</answer>
+  </qa_pair>
+
+  <qa_pair>
+    <question>According to brand-voice.md, when a captured FOUNDER VOICE exists, is the tech-stack voice table the primary source or a fallback? Answer "primary" or "fallback".</question>
+    <answer>fallback</answer>
+  </qa_pair>
+
+  <qa_pair>
+    <question>Per brand-voice.md, should a project's spiky opinion be hedged because the project is version v0.x? Answer YES or NO.</question>
+    <answer>NO</answer>
+  </qa_pair>
+
+  <qa_pair>
+    <question>According to the AI-tells blocklist in references/differentiation.md, the sentence shape "not just X — it's Y" should be flagged and rewritten. Should it be flagged? Answer YES or NO.</question>
+    <answer>YES</answer>
+  </qa_pair>
+
+  <qa_pair>
+    <question>In the Distinctiveness Score (0-5) rubric in differentiation.md, a draft that leads with a feature list, has no defensible opinion, names no road not taken, and could be republished by a competitor scores how many points? Answer with just the number.</question>
+    <answer>0</answer>
   </qa_pair>
 
   <!-- CATEGORY: Build-in-Public Workflow -->

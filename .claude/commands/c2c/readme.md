@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash(python:*), Bash(git log:*), Read, Glob, Grep
+allowed-tools: Bash(git log:*), Read, Glob, Grep
 argument-hint: [project-path]
 description: Generate a README.md for a repository
 ---
@@ -8,16 +8,17 @@ description: Generate a README.md for a repository
 
 Create a comprehensive README.md for the provided project.
 
+> **Differentiation Discovery (offer; never blocking):** Before generating, offer to make this unmistakably theirs — ask for the WHY (the thesis/stakes), one defensible opinion, a road not taken, or a rough draft to polish ("write it ugly; I'll keep your voice"). Rank raw material (Slack threads, support tickets, a voice-memo transcript) above clean specs. If declined, proceed on code alone and flag `Distinctiveness: AT RISK`. At delivery, run the swap-the-name test + AI-tells blocklist from `references/differentiation.md`.
+
 ## Process
 
 1. **Analyze the Project**
-   ```bash
-   python skills/code-to-content/legacy/analyze_codebase.py $ARGUMENTS --deep
-   ```
+   Analyze the codebase **Claude-natively** (read dependency files, detect architecture, grep story hooks like TODO/FIXME, mine `git log`) — see `references/analysis-prompts.md`. No scripts required.
 
 2. **Load Skill Context**
    Read these files:
    - `skills/code-to-content/SKILL.md`
+   - `skills/code-to-content/references/differentiation.md` (WHY / opinion / roads-not-taken)
    - `skills/code-to-content/assets/templates/readme.md`
    - `skills/code-to-content/references/documentation.md`
 
@@ -58,9 +59,7 @@ Create a comprehensive README.md for the provided project.
    - License
 
 5. **Generate Architecture Diagram**
-   ```bash
-   python skills/code-to-content/legacy/generate_diagrams.py $ARGUMENTS --type architecture
-   ```
+   Generate the architecture diagram using the Mermaid templates in `references/diagram-templates.md`.
 
 6. **Deliver**
    Present complete README.md ready to copy, with:

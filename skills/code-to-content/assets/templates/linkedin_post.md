@@ -16,13 +16,15 @@ Instructions: The first 2 lines appear before "See more" - make them count! Dele
 [STORY PARAGRAPH 2: The challenge/conflict]
 [What problem arose? What was at stake? What was the tension?]
 
-[STORY PARAGRAPH 3: What you did]
-[What action did you take? What decision did you make? What happened?]
+[STORY PARAGRAPH 3: What you did — and what you chose NOT to do]
+[What action did you take? What decision did you make? Name the obvious alternative you rejected and why (Roads Not Taken from the Differentiation Brief) — the choice is the story.]
 
 [STORY PARAGRAPH 4: The outcome]
 [What was the result? How did it turn out? Include specific numbers if possible.]
 
 ---
+
+[OPTIONAL — THE SPIKY PART: One sentence stating the unpopular or non-obvious thing you now believe. The line a competitor wouldn't sign. Skip only if the Differentiation Brief captured no opinion.]
 
 Here's what I learned:
 

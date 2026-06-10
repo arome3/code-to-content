@@ -90,6 +90,12 @@ Generate 3+ angles using these templates:
 | Migration Story | "Migrating from [old] to [new]" | Deprecated code, version changes |
 | Scale Story | "Scaling to handle [load]" | Infrastructure changes, caching |
 
+**Also flag differentiation seeds for Phase 2.** When the code hints at a non-obvious choice, surface it as a question to ask the human — the codebase shows the *what*, not the *why*:
+- A "chose X over Y" commit or an ADR → candidate **ROAD NOT TAKEN** (ask: why didn't you take the obvious path?)
+- A removed dependency / deleted subsystem → candidate **ROAD NOT TAKEN** or **SPIKY CLAIM**
+- A surprising constraint in comments ("don't do Z, it breaks W") → candidate **WHY** or opinion
+Mark these as "Phase 2 seed" in your output so the orchestrator knows what to probe. Do not invent the reasoning — name the question.
+
 ## Output Format
 
 ```markdown

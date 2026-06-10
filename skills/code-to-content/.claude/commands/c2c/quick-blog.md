@@ -10,6 +10,8 @@ Generate a technical blog post draft quickly.
 
 ## Mode: QUICK (Reduced Verification)
 
+> **Differentiation (lite):** Quick mode skips the full interview, but still lead with the WHY (not a feature list) and land one defensible opinion. Want it unmistakably yours — something a competitor couldn't republish? Reply with the why, a rejected alternative, or a rough draft and I'll fold it in. See `references/differentiation.md`.
+
 **Skipped phases:** 1 (codebase analysis), 4 (SEO/optimization)
 
 **Still required:** Audience selection (Phase 2) — you must specify who this is for.

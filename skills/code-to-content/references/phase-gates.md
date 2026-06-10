@@ -7,17 +7,19 @@ This document defines the mandatory verification gates between phases. You MUST 
 ## Overview
 
 ```
-Phase 1 ──[Gate 1]──> Phase 2 ──[Gate 2]──> Phase 3 ──[Gate 3]──> Phase 4 ──[Gate 4]──> Phase 5 ──[Gate 5]──> DELIVERY
+Phase 1 ──[Gate 1]──> Phase 2 ──[Gate 2*]──> Phase 3 ──[Gate 3]──> Phase 4 ──[Gate 4]──> Phase 5 ──[Gate 5]──> Phase 6 ──[Gate 6]──> DELIVERY
+ Code                Differentiation         Audience &           Content             Optimization        Verification
+ Analysis            Discovery               Format               Generation                              & Delivery
 ```
 
-Each gate is BLOCKING. If any required item fails, you MUST:
+Each gate is BLOCKING **except Gate 2** (marked `*`), which is a soft forecast — it never stops delivery. If any required item on a blocking gate fails, you MUST:
 1. Address the failure
 2. Re-verify the gate
 3. Only then proceed
 
 ---
 
-## Phase 1 Gate: Project Brief Generated
+## Phase 1 Gate: Code Brief Generated
 
 **Verify before proceeding to Phase 2:**
 
@@ -32,27 +34,40 @@ Each gate is BLOCKING. If any required item fails, you MUST:
 
 ### STOP Conditions
 **STOP and inform the user if:**
-- No content-worthy insights found after running `analyze_codebase.py --deep`
+- No content-worthy insights found after Claude-native analysis (see `analysis-prompts.md`)
 - Project is too small or trivial for meaningful content
 - Cannot access the codebase or required files
 
-### Gate Verification Command
-```bash
-# Run analysis and verify outputs exist
-python scripts/analyze_codebase.py /path/to/project --deep
-```
+### Gate Verification
+Analysis is Claude-native (read deps, grep for hooks, mine git log) — no scripts required. The legacy helper `legacy/analyze_codebase.py --deep` is optional and opt-in only.
 
 ---
 
-## Phase 2 Gate: Audience Contract Established
+## Phase 2 Gate: Differentiation Forecast Set (SOFT — never blocks)
 
-**Verify before proceeding to Phase 3:**
+**Verify before proceeding to Phase 3. This gate NEVER stops delivery.**
+
+The founder interview is **always offered, never blocking**. This gate confirms the offer happened and a forecast was recorded — not that the user engaged.
+
+### Required Outputs
+- [ ] **Offer made** — the Phase 2 invitation was presented (questions / raw material / ugly-draft / opt-out), regardless of response
+- [ ] **Differentiation Brief produced** — WHY, spiky claim, roads-not-taken, founder voice fields filled OR explicitly marked "none captured"
+- [ ] **Forecast set** — `ON TRACK` (≥1 of WHY / opinion / roads-not-taken captured) or `AT RISK` (code only)
+
+### NOT a STOP condition
+`AT RISK` is permitted. Do **not** block on declined founder input — proceed on code alone and propagate the `AT RISK` flag to Gate 6's Quality Report. See `differentiation.md`.
+
+---
+
+## Phase 3 Gate: Audience Contract Established
+
+**Verify before proceeding to Phase 4:**
 
 ### Required Outputs
 - [ ] **Single audience selected** — One of: beginner, intermediate, expert, or hiring manager
 - [ ] **Format selected** — One specific format (blog, tutorial, thread, README, etc.)
-- [ ] **Voice profile declared** — Based on tech stack:
-  | Stack | Voice |
+- [ ] **Voice profile declared** — Use the captured **FOUNDER VOICE** (from the Phase 2 Differentiation Brief) as primary. Fall back to the tech-stack table ONLY if no founder voice was captured:
+  | Stack | Voice (fallback only) |
   |-------|-------|
   | Rust | Precise, safety-conscious |
   | JavaScript/TypeScript | Pragmatic, conversational |
@@ -77,11 +92,13 @@ python scripts/analyze_codebase.py /path/to/project --deep
 
 ---
 
-## Phase 3 Gate: Draft Complete with Evidence
+## Phase 4 Gate: Draft Complete with Evidence
 
-**Verify before proceeding to Phase 4:**
+**Verify before proceeding to Phase 5:**
 
 ### Required Outputs
+- [ ] **Leads with the WHY** — opens on the thesis/stakes, not a feature list
+- [ ] **Captured differentiation present** — spiky claim and/or road-not-taken from the Differentiation Brief are in the draft (skip only if the brief marked them "none captured")
 - [ ] **All code examples from actual codebase** — No invented code
 - [ ] **All metrics traceable to source** — Every number has a citation
 - [ ] **Template structure followed** — Using format from `assets/templates/`
@@ -106,12 +123,12 @@ For each claim in the draft:
 
 ---
 
-## Phase 4 Gate: Optimization Applied
+## Phase 5 Gate: Optimization Applied
 
-**Verify before proceeding to Phase 5:**
+**Verify before proceeding to Phase 6:**
 
 ### Required Outputs
-- [ ] **Voice consistency verified** — Same tone throughout
+- [ ] **Voice consistency verified** — Same tone throughout, matching the captured founder voice (including its rejections)
 - [ ] **Cognitive load appropriate** — Based on audience:
   | Complexity | Approach |
   |------------|----------|
@@ -135,18 +152,18 @@ Read the opening and closing paragraphs aloud. Do they sound like the same autho
 
 ---
 
-## Phase 5 Gate: Delivery Approved
+## Phase 6 Gate: Delivery Approved
 
 **Verify before delivering to user:**
 
-### Required Outputs
+### Required Outputs (BLOCKING)
 - [ ] **Format checklist passed** — 100% of items from `references/checklists.md`
-- [ ] **Readability validation passed** — Using:
-  ```bash
-  python scripts/analyze_readability.py content.md --audience <type> --validate
-  ```
-- [ ] **Evidence verification complete** — All claims verified in Phase 3
+- [ ] **Readability validation passed** — Claude-native estimate against the thresholds below (optional helper: `legacy/analyze_readability.py --validate`)
+- [ ] **Evidence verification complete** — All claims verified in Phase 4
 - [ ] **No blockers remain** — All STOP conditions resolved
+
+### Reported, NOT blocking
+- [ ] **Distinctiveness recorded** — run the swap-the-name test + AI-tells blocklist from `differentiation.md`; record the **Distinctiveness Score (0–5)**, the swap-the-name verdict, and whether founder input was used or declined. A score of 0–2 → surface the `AT RISK` warning prominently and offer to run Phase 2 before publishing. **Never block delivery on this.**
 
 ### Readability Thresholds (MUST pass)
 | Audience | Max Grade | Max Jargon | Code Ratio |
@@ -155,18 +172,14 @@ Read the opening and closing paragraphs aloud. Do they sound like the same autho
 | Intermediate | 12.0 | 4% | 1:1 |
 | Expert | 16.0 | 8% | 0.5:1 |
 
-### Final Verification Command
-```bash
-python scripts/analyze_readability.py output.md --audience beginner --validate
-# Expected: PASS
-```
-
 ### STOP Conditions
 **DO NOT DELIVER if:**
 - Any format checklist item fails
 - Readability validation returns FAIL
 - Unverified claims remain
 - User has not approved final draft (if requested)
+
+**Distinctiveness `AT RISK` is NOT a STOP condition** — warn loudly, deliver anyway.
 
 ---
 
@@ -182,39 +195,45 @@ When a gate fails:
 ### Backtrack Rules
 | Failed Gate | Return To |
 |-------------|-----------|
-| Gate 1 (Project Brief) | Re-analyze project or request different project |
-| Gate 2 (Audience) | Re-clarify with user |
-| Gate 3 (Evidence) | Phase 3 — find evidence or revise claims |
-| Gate 4 (Optimization) | Phase 4 — apply missing optimizations |
-| Gate 5 (Delivery) | Phase that caused the failure |
+| Gate 1 (Code Brief) | Re-analyze project or request different project |
+| Gate 2 (Differentiation) | Soft — never fails; re-offer the interview if user wants more distinctiveness |
+| Gate 3 (Audience) | Re-clarify with user |
+| Gate 4 (Evidence) | Phase 4 — find evidence or revise claims |
+| Gate 5 (Optimization) | Phase 5 — apply missing optimizations |
+| Gate 6 (Delivery) | Phase that caused the failure |
 
 ---
 
 ## Quick Reference Card
 
 ```
-PHASE 1: PROJECT ANALYSIS
-├── Run: analyze_codebase.py --deep
+PHASE 1: CODE ANALYSIS
+├── Claude-native: read deps, grep hooks, mine git log
 ├── Output: Tech stack, 3+ angles, story element
-└── Gate: Project Brief Generated
+└── Gate: Code Brief Generated
 
-PHASE 2: AUDIENCE & FORMAT
+PHASE 2: DIFFERENTIATION DISCOVERY  (offer; never blocks)
+├── Offer: questions / raw material / ugly-draft / opt-out
+├── Extract: THE WHY · SPIKY CLAIM · ROADS NOT TAKEN · FOUNDER VOICE
+└── Gate*: Forecast set (ON TRACK | AT RISK) — soft
+
+PHASE 3: AUDIENCE & FORMAT
 ├── Select: ONE audience, ONE format
-├── Declare: Voice profile, assumed knowledge
+├── Declare: Founder voice (primary) / tech-stack fallback
 └── Gate: Audience Contract Established
 
-PHASE 3: CONTENT GENERATION
-├── Use: Format template
-├── Ground: ALL claims in evidence
+PHASE 4: CONTENT GENERATION
+├── Lead with the WHY; place spiky claim + road-not-taken
+├── Use: Format template · Ground: ALL claims in evidence
 └── Gate: Draft Complete with Evidence
 
-PHASE 4: OPTIMIZATION
+PHASE 5: OPTIMIZATION
 ├── Apply: Voice, SEO, cognitive load
 ├── Add: Visual assets
 └── Gate: Enhancement Applied
 
-PHASE 5: VERIFICATION
-├── Run: Format checklist
-├── Run: analyze_readability.py --validate
-└── Gate: All Checks Pass → DELIVER
+PHASE 6: VERIFICATION
+├── Run: Format checklist · Readability (Claude-native)
+├── Report: Swap-the-name test + Distinctiveness Score (0–5)
+└── Gate: Blocking checks pass → DELIVER (distinctiveness reported, not gated)
 ```

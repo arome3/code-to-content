@@ -2,24 +2,30 @@
 
 Before generating any content about a user's project, execute this analysis protocol to extract compelling material.
 
+This protocol spans two phases. **Phase 1 (Code Analysis)** mines the codebase for the WHAT. **Phase 2 (Differentiation Discovery)** extracts the WHY, the opinion, and the roads not taken from the *human* — the material the code cannot contain. Section 4 (Developer Interview) is the spine of Phase 2, not an optional fallback. Pair this with `references/differentiation.md`.
+
+> The dimensions below are not all equal. **Problem → THE WHY** and **Journey/Architecture → ROADS NOT TAKEN** are the differentiating targets — the things a competitor could not write. Treat them as required extraction goals in Phase 2, not as one content angle among many.
+
 ---
 
 ## 1. Analyze Five Dimensions
 
 Examine each dimension systematically. Ask clarifying questions if information is missing.
 
-### Problem Dimension
+### Problem Dimension → THE WHY (differentiating target)
 
-Extract these elements:
+Go past "what problem does it solve" to the strategic conviction behind it. Extract:
 - The specific pain point that triggered this project
+- **The belief that made this worth building *now*** — what does the builder think is changing in the world?
+- **The insight or secret only they have** — a customer conversation, a number they saw, a thing they know that the market doesn't yet
 - Who experiences this pain and how frequently
 - What workarounds existed before this solution
 - The tangible cost of the unsolved problem
 
 Identify content angles from:
+- The thesis the product is a consequence of (lead with this, not the feature)
 - The frustration origin story
 - Why existing solutions fell short
-- Quantified developer/user pain
 
 ### Solution Dimension
 
@@ -34,18 +40,20 @@ Identify content angles from:
 - Simplified mental models
 - Technical decision rationale
 
-### Journey Dimension
+### Journey Dimension → ROADS NOT TAKEN (differentiating target)
 
-Extract these elements:
+The choices *not* made are the story an AI can never invent. Extract:
+- **The obvious thing a competent team would have built — and why they didn't**
+- **What was cut, deferred, or deliberately left to another layer, and the trade-off behind it**
 - The hardest technical challenge encountered
-- Approaches attempted but abandoned
+- Approaches attempted but abandoned (and the deciding factor that killed them)
 - Unexpected discoveries during development
 - Hindsight lessons
 
 Identify content angles from:
+- "We considered X but chose Y because Z" decisions
 - Debugging war stories
 - Failed approaches and pivots
-- Hard-won knowledge
 
 ### Architecture Dimension
 
@@ -124,28 +132,43 @@ Find interesting content sources by locating:
 
 ---
 
-## 4. Conduct Developer Interview
+## 4. Conduct Developer Interview (Phase 2 spine — always offered, never blocking)
 
-When information gaps exist, ask the user directly. Use these question categories:
+This is the core of Phase 2, not a fallback. The codebase gave you the WHAT; this gets the WHY, the opinion, and the roads not taken. **Always offer it. Never block on it** — if the user declines, proceed on code alone and flag `Distinctiveness: AT RISK`.
 
-**Opening (establish scope):**
-- "In one sentence, what does this project do?"
-- "Who is this for and what were they doing before?"
+### Open with the offer (one message, three paths + opt-out)
 
-**Technical depth (mine implementation details):**
-- "Walk me through what happens when [core action occurs]"
-- "What was the trickiest part to get right?"
-- "What would break if we removed [component]?"
+> "To make this unmistakably yours — something a competitor couldn't republish — I can:
+> (a) ask you 4–5 quick questions,
+> (b) take raw material: a Slack thread, support tickets, a 2-minute voice-memo transcript, rough notes, or
+> (c) polish a rough draft you write (write it ugly; I'll keep your voice).
+> Or I can proceed from the code alone. Which do you want?"
 
-**Story mining (extract narrative):**
+### Mess over spec
+If they share raw material, rank it **above** the polished README (see `differentiation.md`). Rough Slack arguments and support tickets carry the signal; clean specs are what everyone's competitor also has.
+
+### The questions (grouped by extraction target)
+
+**THE WHY (Move 1):**
+- "Why was this worth building *now*? What changes in the world if it works?"
+- "What did a customer say, or what did you see, that made this undeniable?"
+
+**THE SPIKY CLAIM (Move 2):**
+- "What do most people in your space get *wrong* that you do differently?"
+- "What's one sentence here a competitor would refuse to sign their name to?"
+
+**ROADS NOT TAKEN (Move 3):**
+- "What's the obvious thing you *could* have built — and why didn't you?"
+- "What almost shipped but got killed, and what was the deciding factor?"
+
+**Story + technical depth:**
 - "What's something you tried first that didn't work?"
 - "Was there a moment where everything clicked?"
-- "What would you tell someone starting a similar project?"
+- "Walk me through what happens when [core action occurs]."
 
-**Differentiation (find unique angles):**
-- "Why this approach vs [common alternative]?"
-- "What's unusual about your implementation?"
-- "What are you most proud of technically?"
+**FOUNDER VOICE (capture as rejections — see `brand-voice.md`):**
+- "Paste one line you've written that sounds like *you*."
+- "What words, punctuation, or tone would you never use?"
 
 ---
 
@@ -179,6 +202,28 @@ CHALLENGES OVERCOME:
 RESULTS/IMPACT:
 - [Metric or outcome]
 - [Metric or outcome]
+
+--- DIFFERENTIATION BRIEF (from Phase 2) ---
+
+THE WHY:
+[The thesis / stakes / only-you-know insight the piece should lead with]
+
+THE SPIKY CLAIM:
+[One defensible opinion a reasonable reader could disagree with. Leave blank if not captured.]
+
+ROADS NOT TAKEN:
+[What they chose not to build + the trade-off. Leave blank if not captured.]
+
+FOUNDER VOICE:
+- Sounds like: [positive anchor line]
+- Never: [rejected words/punctuation/tone]
+- Source: [interview / transcript / rough draft / NONE → tech-stack fallback]
+
+RAW MATERIAL CAPTURED:
+[Slack/tickets/transcript/notes, or "none"]
+
+DISTINCTIVENESS FORECAST:
+[ON TRACK — at least one of WHY/opinion/roads captured | AT RISK — code only, offer declined]
 
 BEST CONTENT ANGLES:
 1. [Angle]: [Why compelling]

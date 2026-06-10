@@ -22,7 +22,7 @@ It's boring, error-prone, and takes days away from building your actual product.
 
 ## The Solution
 
-**fastapi-users** provides production-ready authentication in under 5 minutes.
+**fastapi-users** provides production-ready authentication in under 5 minutes — because we believe the *secure* path should also be the *short* path. Most auth tutorials hand you 50 lines of boilerplate and three quiet footguns; this is that boilerplate with the unsafe defaults already removed.
 
 - **JWT or sessions** — Your choice, same API
 - **SQLAlchemy or MongoDB** — Bring your own database
@@ -124,6 +124,23 @@ async def protected_route(user: User = Depends(fastapi_users.current_user())):
 - **Backends** — Pluggable database adapters (SQLAlchemy, MongoDB)
 - **Strategies** — Authentication methods (JWT, Cookie sessions)
 - **Schemas** — Pydantic models for request/response validation
+
+---
+
+## Design Philosophy
+
+We're opinionated where most auth libraries stay neutral. The choices we made (and the ones we refused) are the reason this README isn't interchangeable with the next library's:
+
+- **Short-lived JWT + refresh over long-lived sessions.** Sessions are simpler; we chose stateless tokens so "log out everywhere" is a real, instant feature instead of a database sweep.
+- **Secure defaults are not optional.** `cookie_secure` and `cookie_httponly` default to `True`. You opt *out* for local dev, never *in* for production.
+
+**What this deliberately does NOT do:**
+
+- **No MFA.** It belongs at your identity/app layer; bolting it on here would force a database schema we don't want to own for you.
+- **No rate limiting.** That's your gateway's job. Duplicating it here just gives you two places to misconfigure the same protection.
+- **No custom session store abstraction.** We support JWT and cookie sessions and stop there — fewer knobs, fewer footguns.
+
+If you want a configure-everything kitchen sink, use a lower-level toolkit. If you want the secure 80% with almost no decisions to make, that's this.
 
 ---
 

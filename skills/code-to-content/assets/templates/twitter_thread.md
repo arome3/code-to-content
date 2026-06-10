@@ -6,7 +6,7 @@ Instructions: Fill in each tweet. Each should be under 280 characters. Delete in
 
 ## Tweet 1: HOOK (Most Important)
 
-[SURPRISING STATEMENT OR RESULT]
+[LEAD WITH THE WHY/THESIS or a surprising result — the only-you-know claim from the Differentiation Brief. NOT "We're excited to announce". NOT "Thread on X". A competitor must not be able to tweet this same line.]
 
 [SETUP THE PROMISE]
 
@@ -30,11 +30,11 @@ Instructions: Fill in each tweet. Each should be under 280 characters. Delete in
 
 ---
 
-## Tweet 4: FIRST ATTEMPT (Optional)
+## Tweet 4: ROAD NOT TAKEN / FIRST ATTEMPT
 
-[What did you try first?]
+[What did you try first, or what obvious approach did you reject? The trade-off behind the choice — from the Differentiation Brief.]
 
-[Why it didn't work]
+[Why it didn't work / why you went the other way]
 
 ---
 
@@ -66,9 +66,9 @@ After:
 
 ---
 
-## Tweet 8: KEY TAKEAWAY
+## Tweet 8: KEY TAKEAWAY (state your opinion)
 
-[The lesson generalized]
+[The lesson generalized into one defensible, spiky claim — what most people get wrong. Don't hedge it.]
 
 [Why this matters to readers]
 

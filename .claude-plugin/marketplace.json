@@ -5,15 +5,15 @@
     "email": "arome@example.com"
   },
   "metadata": {
-    "description": "Transform codebases into developer content with a 5-phase gated workflow",
-    "version": "1.0.1"
+    "description": "Transform codebases into developer content with a 6-phase gated workflow",
+    "version": "1.1.0"
   },
   "plugins": [
     {
       "name": "code-to-content",
       "source": "./skills/code-to-content",
-      "description": "Transform codebases into developer content. 5-phase gated workflow, 3 parallel agents, 9 content formats (blog, tutorial, Twitter, LinkedIn, README, newsletter, video script, conference talk, product launch).",
-      "version": "1.0.1",
+      "description": "Transform codebases into developer content. 6-phase gated workflow, 3 parallel agents, 9 content formats (blog, tutorial, Twitter, LinkedIn, README, newsletter, video script, conference talk, product launch).",
+      "version": "1.1.0",
       "author": {
         "name": "Abraham Onoja"
       },

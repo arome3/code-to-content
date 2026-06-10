@@ -1,12 +1,12 @@
 # /c2c:video-script
 
-Generate a video/screencast script using the mandatory 5-phase process.
+Generate a video/screencast script using the mandatory 6-phase process.
 
 **Usage:** `/c2c:video-script [path-to-project]`
 
 ---
 
-## Phase 1: Project Analysis
+## Phase 1: Code Analysis
 
 You MUST analyze the codebase before generating content.
 
@@ -28,7 +28,23 @@ Identify:
 
 ---
 
-## Phase 2: Audience Declaration
+## Phase 2: Differentiation Discovery
+
+Load `references/differentiation.md` and `references/project-analysis.md`. **Always offer this; never block on it.**
+
+Offer the user (one message): "To make this unmistakably yours — something a competitor couldn't republish — I can (a) ask 4–5 quick questions, (b) take raw material (a Slack thread, support tickets, a voice-memo transcript, rough notes), or (c) polish a rough draft you write. Or I proceed from the code alone."
+
+Extract into a **Differentiation Brief** (append to the Project Brief):
+- **THE WHY** — the thesis/stakes to lead with, not a feature list
+- **THE SPIKY CLAIM** — one defensible opinion a reader could disagree with
+- **ROADS NOT TAKEN** — what you chose not to build + the trade-off
+- **FOUNDER VOICE** — how they write, captured as rejections (becomes the primary voice in Phase 3)
+
+**Gate (soft — never blocks):** Differentiation Brief produced; forecast set to ON TRACK (>=1 of WHY/opinion/roads captured) or AT RISK (code only). If declined, proceed on code alone and carry `Distinctiveness: AT RISK` to Phase 6.
+
+---
+
+## Phase 3: Audience Declaration
 
 Video audiences:
 - **Beginner** — Needs slow pace, full context
@@ -46,7 +62,7 @@ Declare:
 
 ---
 
-## Phase 3: Content Generation
+## Phase 4: Content Generation
 
 Use template: `assets/templates/video_script.md`
 
@@ -72,7 +88,7 @@ For each section include:
 
 ---
 
-## Phase 4: Optimization
+## Phase 5: Optimization
 
 Apply:
 - Pacing appropriate for audience
@@ -87,7 +103,9 @@ Apply:
 
 ---
 
-## Phase 5: Verification
+## Phase 6: Verification
+
+Also run the **distinctiveness** check from `references/differentiation.md`: the swap-the-name test ("swap in a competitor's name — does it still read fine? then it failed"), the AI-tells blocklist, and record the **Distinctiveness Score (0-5)**. REPORTED, never blocking — if 0-2, surface `AT RISK` and offer Phase 2.
 
 Run checklist from `references/checklists.md` (Video Script section).
 

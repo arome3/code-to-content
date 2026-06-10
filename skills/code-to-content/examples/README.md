@@ -61,11 +61,11 @@ Examples of content that **fails** skill gates, with explanations and correction
 
 | File | Gate Failed | Violation |
 |------|-------------|-----------|
-| `blog-post-weak-hook.md` | Phase 5 (Hook Quality) | Opens with "In this article, I will..." |
-| `tutorial-mixed-audience.md` | Phase 5 (Readability) | Grade level 13.5 for beginners (max 8.0) |
+| `blog-post-weak-hook.md` | Phase 6 (Hook Quality) | Opens with "In this article, I will..." |
+| `tutorial-mixed-audience.md` | Phase 6 (Readability) | Grade level 13.5 for beginners (max 8.0) |
 | `readme-missing-problem.md` | Phase 4 (Template) | Skips problem statement, jumps to install |
 | `twitter-thread-prefix.md` | Phase 4 (Format Rules) | Uses "Thread: 1/" prefix |
-| `ungrounded-claims.md` | Phase 3 (Evidence) | "50% faster" with no data |
+| `ungrounded-claims.md` | Phase 4 (Evidence) | "50% faster" with no data |
 
 **Demonstrates:**
 - What gate failures look like
@@ -77,11 +77,11 @@ Examples of content that **fails** skill gates, with explanations and correction
 
 ### 5. Complete Workflow (`workflow/`)
 
-End-to-end demonstration of the **5-phase process** with actual outputs at each phase.
+End-to-end demonstration of the **6-phase process** with actual outputs at each phase.
 
 | File | Description |
 |------|-------------|
-| `blog-post-full-workflow.md` | Complete Phase 1→2→3→4→5 chain for a blog post |
+| `blog-post-full-workflow.md` | Complete Phase 1→2→3→4→5→6 chain for a blog post |
 
 **Shows:**
 - Actual output from each phase (not just descriptions)
@@ -150,10 +150,7 @@ Beyond standard technical writing, the skill's analysis and content generation c
 
 **Workflow**:
 
-```bash
-# Run deep analysis on the critical system
-python scripts/analyze_codebase.py /path/to/payment-service --deep --json > analysis.json
-```
+Analyze the critical system **Claude-natively** (read dependency files, map structure, mine `git log` for story-worthy commits). An optional opt-in helper exists at `legacy/analyze_codebase.py` if you prefer a script.
 
 Then prompt:
 
@@ -240,4 +237,4 @@ The Phase 1 analysis extracts:
 - **Constraint propagation** - How phase outputs become inputs
 - **Gate verification** - What's checked at each transition
 - **Process enforcement** - Why skipping phases causes failures
-- **Complete reference** - The canonical 5-phase implementation
+- **Complete reference** - The canonical 6-phase implementation

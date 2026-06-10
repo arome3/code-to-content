@@ -2,7 +2,7 @@
 
 ## Gate Failed
 
-**Phase 5 Gate** — Hook Quality Check
+**Phase 6 Gate** — Hook Quality Check
 
 ## Rule Violated
 

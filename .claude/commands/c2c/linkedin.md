@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash(python:*), Read, Glob, Grep
+allowed-tools: Read, Glob, Grep
 argument-hint: [topic or project-path]
 description: Generate a LinkedIn post from an insight or project
 ---
@@ -8,15 +8,18 @@ description: Generate a LinkedIn post from an insight or project
 
 Create a professional LinkedIn post from a technical insight or project experience.
 
+> **Differentiation Discovery (offer; never blocking):** Before generating, offer to make this unmistakably theirs — ask for the WHY (the thesis/stakes), one defensible opinion, a road not taken, or a rough draft to polish ("write it ugly; I'll keep your voice"). Rank raw material (Slack threads, support tickets, a voice-memo transcript) above clean specs. If declined, proceed on code alone and flag `Distinctiveness: AT RISK`. At delivery, run the swap-the-name test + AI-tells blocklist from `references/differentiation.md`.
+
 ## Process
 
 1. **Understand the Input**
-   - If path provided: Analyze with `python skills/code-to-content/legacy/analyze_codebase.py $ARGUMENTS`
+   - If path provided: Analyze it Claude-natively (read deps, grep story hooks, mine git log; see `references/analysis-prompts.md`)
    - If topic provided: Proceed directly to story extraction
 
 2. **Load Skill Context**
    Read these files:
    - `skills/code-to-content/SKILL.md`
+   - `skills/code-to-content/references/differentiation.md` (WHY / opinion / roads-not-taken)
    - `skills/code-to-content/references/social-content.md` (LinkedIn section)
    - `skills/code-to-content/assets/templates/linkedin_post.md`
 
