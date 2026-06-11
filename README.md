@@ -34,14 +34,15 @@ Most developers ship amazing code but struggle to tell the story.
 
 | Feature | Description |
 |---------|-------------|
-| **5-Phase Process** | Mandatory workflow: Analysis → Audience → Content → Optimization → Verification |
+| **6-Phase Process** | Mandatory workflow: Analysis → **Differentiation** → Audience → Content → Optimization → Verification |
+| **Differentiation Engine** | Extracts the *why*, your opinion, and what you chose *not* to build — then runs the **swap-the-name test** so you never ship generic content |
 | **Quick Mode** | Reduced-phase commands for rapid content generation |
 | **Verification Gates** | Each phase has gates that MUST pass before proceeding |
 | **9 Content Types** | Blog, tutorial, Twitter, LinkedIn, README, newsletter, video script, conference talk, product launch |
 | **Build-in-Public** | Journey brief system for sustained narrative and voice continuity |
 | **Claude-Native** | Zero dependencies — all analysis performed inline |
 | **MCP Ready** | Optional integration with social MCP servers for direct posting |
-| **18 Evaluation Questions** | Self-testing suite to verify skill effectiveness |
+| **25 Evaluation Questions** | Self-testing suite to verify skill effectiveness |
 
 ## Installation
 
@@ -99,20 +100,20 @@ Claude: [Executes 6-phase process]
 <details>
 <summary><b>See an example Blog Post output</b></summary>
 
-> **Title:** How we reduced latency by 40% using Rust (and why we ditched Python)
+> **Title:** Why we rewrote our payment path in Rust — and the one service next door we deliberately left in Python
 >
-> **Intro:**
-> When we started the `payment-service` module (located in `/src/services/payments`), we hit a bottleneck. Our Python implementation was choking on concurrent requests.
+> **Intro (WHY-led, not a feature list):**
+> Everyone says "rewrite the hot path in Rust" like it's free. It isn't — you trade a language your whole team knows for a latency win you have to earn. The bottleneck was real: `AsyncProcessor` in `payment-service` (`/src/services/payments`) was serializing under concurrent load, and we measured it.
 >
-> In this post, I'll show you exactly how we refactored the `AsyncProcessor` class...
+> **The road we didn't take:** we *kept* the adjacent `reporting-service` in Python on purpose — it's batch, not hot, and the team velocity mattered more than the milliseconds.
 >
-> *[...Full post continues with code snippets extracted from your files...]*
+> *[...continues with the trade-offs and code, grounded in your actual files — then a Phase 6 swap-the-name check confirms a competitor couldn't republish it...]*
 
 </details>
 
 ### Slash Commands
 
-**Full Mode (All 5 Phases)**
+**Full Mode (All 6 Phases)**
 
 | Command | Description |
 |---------|-------------|
@@ -143,30 +144,43 @@ code-to-content/
 │   └── plugin.json             # Plugin metadata
 ├── skills/
 │   └── code-to-content/
-│       ├── SKILL.md            # Main skill definition (v1.0.1)
-│       ├── .claude/commands/   # 13 slash commands (9 full + 4 quick)
+│       ├── SKILL.md            # Main skill definition (v1.1.0)
+│       ├── .claude/commands/   # 14 slash commands (9 full + 4 quick + cascade)
 │       ├── assets/templates/   # Content templates with copy-ready formats
-│       ├── references/         # Claude-native analysis guides (13 files)
-│       ├── examples/           # Positive, negative, workflow
-│       ├── evaluation/         # 18 QA pairs
+│       ├── references/         # Claude-native analysis guides (14 files, incl. differentiation.md)
+│       ├── examples/           # Positive, negative, differentiation, workflow
+│       ├── evaluation/         # 25 QA pairs
 │       └── legacy/             # Archived Python scripts (optional)
 ├── README.md
 └── LICENSE
 ```
 
-## The 5-Phase Process
+## The Differentiation Engine
+
+AI made competent prose free, so *grounded but generic* now gets ignored — cover the logo, swap in a competitor's name, and most "We're excited to announce…" posts read identically. **v1.1.0** adds the layer that fixes this:
+
+- **Lead with the WHY**, not a feature list — the thesis your work is a consequence of.
+- **Hold one defensible opinion** you'd stand behind, instead of committee-hedged mush.
+- **Show what you chose *not* to build** — the trade-offs and rejected paths only you know.
+
+Phase 2 gathers this from you — a short interview, raw material (Slack threads, notes, a voice-memo transcript), or a rough draft to polish ("mess over spec"). Phase 6 then scores the result **0–5** and runs the **swap-the-name test**. It never blocks you; it just refuses to pretend code-only output is distinctive, flagging it `AT RISK` instead. See `references/differentiation.md`.
+
+## The 6-Phase Process
 
 ```
-PHASE 1 ──[Gate]──> PHASE 2 ──[Gate]──> PHASE 3 ──[Gate]──> PHASE 4 ──[Gate]──> PHASE 5 ──[Gate]──> DELIVERY
+P1 ─[Gate]→ P2 ─[Gate*]→ P3 ─[Gate]→ P4 ─[Gate]→ P5 ─[Gate]→ P6 ─[Gate]→ DELIVERY
 ```
 
 | Phase | Purpose | Gate Requirement |
 |-------|---------|------------------|
-| **1. Analysis** | Understand the codebase | 3+ content angles found |
-| **2. Audience** | Lock in ONE target audience | No audience mixing |
-| **3. Content** | Generate evidence-based draft | All claims grounded |
-| **4. Optimization** | Apply SEO, voice, visuals | Voice consistent |
-| **5. Verification** | Quality gate checks | All thresholds pass |
+| **1. Code Analysis** | Understand the codebase | 3+ content angles found |
+| **2. Differentiation Discovery** | Get the *why*, your opinion, the roads not taken | Forecast set: on-track / at-risk* |
+| **3. Audience** | Lock in ONE target audience | No audience mixing |
+| **4. Content** | Generate evidence-based, WHY-led draft | All claims grounded |
+| **5. Optimization** | Apply SEO, voice, visuals | Voice consistent |
+| **6. Verification** | Quality gates + swap-the-name distinctiveness check | Thresholds pass; distinctiveness reported |
+
+<sub>*Phase 2's gate is **soft** — it never blocks delivery. Decline the interview and the skill proceeds on code alone, flagging the result distinctiveness `AT RISK`.</sub>
 
 ## Build-in-Public Support
 
@@ -181,7 +195,7 @@ See `references/build-in-public.md` for the full guide.
 
 ## Evaluation
 
-Test skill effectiveness with 18 self-contained questions:
+Test skill effectiveness with 25 self-contained questions:
 
 ```bash
 # In Claude Code with skill loaded
@@ -199,6 +213,7 @@ Categories tested:
 - Script capabilities
 - Reference file content
 - Content quality gates
+- Differentiation (Phase 2 + swap-the-name test)
 - Build-in-public workflow
 
 ## Requirements
