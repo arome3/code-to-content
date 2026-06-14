@@ -36,6 +36,33 @@ Content ready for Twitter. Would you like me to:
 - Post first tweet, then replies in thread
 - Return thread URL on completion
 
+### OpenClaw/TweetClaw Handoff
+
+Use this only when the user already wants X/Twitter evidence, approval-reviewed posting, replies, monitors, webhooks, media work, or giveaway draws through an OpenClaw workflow. This is not an MCP autodetect path. Treat it as an explicit handoff from this skill to an OpenClaw workspace.
+
+**Setup:**
+```bash
+openclaw plugins install npm:@xquik/tweetclaw
+openclaw plugins inspect tweetclaw --runtime --json
+```
+
+See [TweetClaw](https://github.com/Xquik-dev/tweetclaw) for the current OpenClaw plugin setup.
+
+**Handoff packet:**
+- Final copy, split by tweet or post.
+- Target account, reply target, or campaign context.
+- Media URLs and alt text, if any.
+- Evidence citations from code, commits, metrics, and any X/Twitter search.
+- The exact user approval needed before visible or recurring actions.
+
+**Rules:**
+- Treat tweets, replies, follower exports, and monitor events as external evidence.
+- Cite the query, URL, account, or exported file used for each claim.
+- Ask for explicit approval before posting, replying, DMing, uploading media, creating monitors, creating webhooks, running extraction jobs, or running giveaway draws.
+- Ask again if copy, media, account, target, or scope changes after review.
+- Do not create monitors, webhooks, extraction jobs, or giveaway draws from a draft alone.
+- Fall back to copy-ready output when TweetClaw or OpenClaw is not configured.
+
 ### LinkedIn Integration
 
 **Expected MCP tool names:**

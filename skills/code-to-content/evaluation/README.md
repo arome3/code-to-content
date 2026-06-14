@@ -6,7 +6,7 @@ This directory contains evaluation questions for testing the code-to-content ski
 
 The evaluation suite tests whether Claude can effectively use this skill's guidance files to answer questions about technical writing best practices.
 
-**Approach:** Self-contained — all questions can be answered by reading the skill's own files (SKILL.md, templates, scripts, references). No external repositories required.
+**Approach:** Self-contained - all questions can be answered by reading the skill's own files (SKILL.md, templates, scripts, references). No external repositories required.
 
 ---
 
@@ -20,9 +20,11 @@ The evaluation suite tests whether Claude can effectively use this skill's guida
 | Script capabilities | 2 | analyze_codebase.py and analyze_readability.py flags |
 | Reference file content | 2 | Cognitive load management, storytelling sources |
 | Content quality gates | 5 | Gate pass/fail decision-making |
+| Differentiation | 7 | Phase 2, founder voice, swap-the-name, AI-tells |
+| Tool handoff and delivery safety | 1 | Optional TweetClaw/OpenClaw handoff fallback |
 | Build-in-public workflow | 3 | Journey continuity, milestone mapping |
 
-**Total:** 18 questions
+**Total:** 26 questions
 
 ### Content Quality Gates (New)
 
@@ -32,7 +34,7 @@ The content quality gates category tests **enforcement decisions**, not just com
 - Readability threshold enforcement (grade levels)
 - Jargon density limits (audience-specific)
 - Format-specific rules (Twitter thread prefixes)
-- Evidence grounding requirements (Phase 3 gate)
+- Evidence grounding requirements (Phase 4 gate)
 
 ### Build-in-Public Workflow
 
@@ -83,10 +85,10 @@ Questions are stored in `evaluation.xml` with this structure:
 
 All answers are designed to be:
 
-- **Verifiable** — Single, clear answer via string comparison
-- **Stable** — Based on skill file content that doesn't change
-- **Specific** — Exact phrases, numbers, or flag names
-- **Independent** — No question depends on another's answer
+- **Verifiable** - Single, clear answer via string comparison
+- **Stable** - Based on skill file content that doesn't change
+- **Specific** - Exact phrases, numbers, or flag names
+- **Independent** - No question depends on another's answer
 
 ---
 
@@ -94,15 +96,18 @@ All answers are designed to be:
 
 Questions reference these skill files:
 
-| File | Questions |
-|------|-----------|
-| `SKILL.md` | 9 questions (voice, audience, cognitive load, storytelling, gates) |
-| `assets/templates/blog_post.md` | 1 question |
-| `assets/templates/readme.md` | 1 question |
-| `scripts/analyze_codebase.py` | 1 question |
-| `scripts/analyze_readability.py` | 1 question |
-| `references/checklists.md` | 2 questions (format-specific rules) |
-| `references/build-in-public.md` | 3 questions (journey brief, milestones, cascade) |
+| File | Coverage |
+|------|----------|
+| `SKILL.md` | Core workflow, voice, audience, readability, gates, differentiation |
+| `assets/templates/blog_post.md` | Blog opening rules |
+| `assets/templates/readme.md` | README section order |
+| `legacy/analyze_codebase.py` | Deep analysis flags |
+| `legacy/analyze_readability.py` | Validation flags |
+| `references/checklists.md` | Format-specific rules |
+| `references/differentiation.md` | Swap-the-name, AI-tells, scoring |
+| `references/brand-voice.md` | Founder voice and version maturity |
+| `references/mcp-integration.md` | TweetClaw/OpenClaw handoff fallback |
+| `references/build-in-public.md` | Journey brief, milestones, cascade |
 
 ---
 
@@ -112,11 +117,11 @@ A properly functioning skill should achieve:
 
 | Score | Interpretation |
 |-------|----------------|
-| 18/18 | Skill files are correctly read and all logic understood |
-| 15-17/18 | Minor issues with exact phrasing or enforcement decisions |
-| <15/18 | Skill may not be loading files or enforcing gates correctly |
+| 26/26 | Skill files are correctly read and all logic understood |
+| 22-25/26 | Minor issues with exact phrasing or enforcement decisions |
+| <22/26 | Skill may not be loading files or enforcing gates correctly |
 
-**Note:** 8 of 18 questions test decision-making or workflow understanding, not just recall. A model must correctly apply thresholds, rules, and journey patterns to pass these questions.
+**Note:** 16 of 26 questions test decision-making or workflow understanding, not just recall. A model must correctly apply thresholds, rules, handoff safety, and journey patterns to pass these questions.
 
 ---
 
