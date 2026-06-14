@@ -17,9 +17,10 @@
   - Reference file content (2 questions)
   - Content quality gates (5 questions) - tests enforcement decisions
   - Differentiation: Phase 2 + swap-the-name (7 questions) - tests distinctiveness layer
+  - Tool handoff and delivery safety (1 question) - tests optional posting handoff rules
   - Build-in-public workflow (3 questions) - tests journey continuity
 
-  Total: 25 questions
+  Total: 26 questions
 
   Note: This skill uses a 6-phase process. Phase 2 is Differentiation Discovery
   (always offered, never blocking). Verification is Phase 6.
@@ -141,13 +142,19 @@
   </qa_pair>
 
   <qa_pair>
-    <question>According to the AI-tells blocklist in references/differentiation.md, the sentence shape "not just X — it's Y" should be flagged and rewritten. Should it be flagged? Answer YES or NO.</question>
+    <question>According to the AI-tells blocklist in references/differentiation.md, the sentence shape "not just X - it's Y" should be flagged and rewritten. Should it be flagged? Answer YES or NO.</question>
     <answer>YES</answer>
   </qa_pair>
 
   <qa_pair>
     <question>In the Distinctiveness Score (0-5) rubric in differentiation.md, a draft that leads with a feature list, has no defensible opinion, names no road not taken, and could be republished by a competitor scores how many points? Answer with just the number.</question>
     <answer>0</answer>
+  </qa_pair>
+
+  <!-- CATEGORY: Tool Handoff and Delivery Safety -->
+  <qa_pair>
+    <question>According to references/mcp-integration.md, if TweetClaw or OpenClaw is not configured during the handoff, should the skill fall back to copy-ready output? Answer YES or NO.</question>
+    <answer>YES</answer>
   </qa_pair>
 
   <!-- CATEGORY: Build-in-Public Workflow -->
