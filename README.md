@@ -1,3 +1,5 @@
+
+
 <p align="center">
   <img src="c2c.png" alt="Code to Content" width="600">
 </p>
@@ -141,7 +143,7 @@ Claude: [Executes 6-phase process]
 ```
 code-to-content/
 ├── .claude-plugin/
-│   └── plugin.json             # Plugin metadata
+│   └── marketplace.json        # Plugin metadata
 ├── skills/
 │   └── code-to-content/
 │       ├── SKILL.md            # Main skill definition (v1.1.0)
